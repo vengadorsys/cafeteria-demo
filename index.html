@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zunoo · Cafetería de especialidad en Torreón</title>
+  <meta name="description" content="Zunoo, cafetería de especialidad en Torreón, Coahuila. Cappuccino, lattes fríos, cold brew y repostería artesanal en un ambiente cálido. Visítanos hoy.">
+  <meta name="theme-color" content="#140E0A">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Zunoo · Cafetería de especialidad">
+  <meta property="og:description" content="El arte del buen café, en cada detalle. Granos de especialidad, baristas expertos y repostería artesanal.">
+  <meta property="og:image" content="img/hero.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="img/hero.webp">
+
+  <!-- ============================================================
+       SEO LOCAL · JSON-LD
+       EDITAR: dirección, teléfono, horarios, coordenadas e Instagram.
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "Zunoo",
+    "description": "Cafetería de especialidad con granos seleccionados, baristas expertos y repostería artesanal.",
+    "image": "img/hero.webp",
+    "logo": "img/vaso-zunoo.webp",
+    "url": "https://zunoo.com.mx/",
+    "telephone": "+52 000 000 0000",
+    "priceRange": "$$",
+    "servesCuisine": ["Café de especialidad", "Repostería"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Morelos 123, Centro",
+      "addressLocality": "Torreón",
+      "addressRegion": "Coahuila",
+      "postalCode": "27000",
+      "addressCountry": "MX"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 25.5394, "longitude": -103.4544 },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "08:00",
+      "closes": "21:00"
+    }],
+    "sameAs": ["https://www.instagram.com/tu_usuario"],
+    "hasMenu": {
+      "@type": "Menu",
+      "hasMenuSection": [{
+        "@type": "MenuSection",
+        "name": "Favoritos",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Cappuccino de Especialidad", "offers": { "@type": "Offer", "price": "68", "priceCurrency": "MXN" } },
+          { "@type": "MenuItem", "name": "Latte Caramelo Frío", "offers": { "@type": "Offer", "price": "78", "priceCurrency": "MXN" } },
+          { "@type": "MenuItem", "name": "Mocha Doble", "offers": { "@type": "Offer", "price": "82", "priceCurrency": "MXN" } }
+        ]
+      }]
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #140E0A;
+      --bg-2: #231A13;
+      --accent: #D48B47;
+      --accent-hover: #E69A55;
+      --text: #F4ECE6;
+      --text-2: #B0A398;
+      --line: #3A2A1E;
+      --radius: 12px;
+      --glow: 0 20px 40px rgba(212, 139, 71, 0.08);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "Manrope", "Inter", system-ui, sans-serif;
+      --wrap: min(1180px, 100% - 2.5rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: var(--wrap); margin-inline: auto; }
+
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.12; letter-spacing: -0.01em; }
+    h1 em, h2 em { font-style: italic; font-weight: 600; color: var(--accent); }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .75rem;
+      font-size: .74rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--accent);
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+
+    .section { padding: clamp(5rem, 11vw, 8.5rem) 0; position: relative; }
+    .section-head { max-width: 640px; margin-bottom: clamp(2.5rem, 6vw, 4rem); }
+    .section-head h2 { font-size: clamp(2.1rem, 5.2vw, 3.4rem); margin-top: 1rem; }
+    .section-head p { color: var(--text-2); margin-top: 1rem; font-size: 1.05rem; }
+    .center { text-align: center; margin-inline: auto; }
+    .center .eyebrow::after { content: ""; width: 28px; height: 1px; background: currentColor; }
+
+    /* ---------- Botones ---------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+      padding: 1rem 1.9rem; border-radius: 999px; border: 0; cursor: pointer;
+      font: 700 .95rem/1 var(--sans); letter-spacing: .02em;
+      background: var(--accent); color: var(--bg);
+      transition: background .3s ease, box-shadow .3s ease, transform .3s ease;
+    }
+    .btn:hover { background: var(--accent-hover); box-shadow: 0 0 0 6px rgba(212,139,71,.12), 0 12px 32px rgba(230,154,85,.28); transform: translateY(-1px); }
+    .btn--ghost { background: transparent; color: var(--text); box-shadow: inset 0 0 0 1px var(--line); }
+    .btn--ghost:hover { background: rgba(244,236,230,.06); box-shadow: inset 0 0 0 1px var(--accent); }
+    .btn svg { width: 18px; height: 18px; }
+
+    /* ---------- Navegación ---------- */
+    .nav {
+      position: fixed; inset: 0 0 auto; z-index: 50;
+      transition: background .4s ease, border-color .4s ease, backdrop-filter .4s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.is-scrolled { background: rgba(20,14,10,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-color: var(--line); }
+    .nav__in { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+    .logo { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; letter-spacing: .14em; }
+    .logo span { color: var(--accent); }
+    .nav__links { display: none; gap: 2.2rem; font-size: .9rem; color: var(--text-2); }
+    .nav__links a { transition: color .25s; }
+    .nav__links a:hover { color: var(--text); }
+    .nav .btn { padding: .75rem 1.3rem; font-size: .85rem; }
+    @media (min-width: 860px) { .nav__links { display: flex; } }
+
+    /* ---------- Hero con distorsión líquida ---------- */
+    .hero {
+      position: relative; min-height: 100svh; display: flex; align-items: center;
+      overflow: hidden; isolation: isolate; padding: 7rem 0 5rem;
+    }
+    .hero__media { position: absolute; inset: 0; z-index: -2; }
+    /* Imagen principal del hero: 1600 × 900 px (WebP). El canvas WebGL la distorsiona; la <img> queda como respaldo. */
+    .hero__media img, .hero__media canvas {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% 50%;
+    }
+    .hero__media canvas { opacity: 0; transition: opacity .6s ease; }
+    .hero.has-gl .hero__media canvas { opacity: 1; }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(20,14,10,.92) 0%, rgba(20,14,10,.55) 42%, rgba(20,14,10,0) 70%),
+        linear-gradient(0deg, var(--bg) 0%, rgba(20,14,10,0) 22%);
+    }
+    @media (max-width: 760px) {
+      .hero { align-items: flex-end; }
+      .hero::after { background: linear-gradient(0deg, var(--bg) 8%, rgba(20,14,10,.78) 48%, rgba(20,14,10,.15) 100%); }
+    }
+    .hero__content { max-width: 600px; pointer-events: none; }
+    .hero__content > * { pointer-events: auto; }
+    .hero h1 { font-size: clamp(2.8rem, 8vw, 5.4rem); margin: 1.4rem 0 1.4rem; }
+    .hero p { color: var(--text-2); font-size: clamp(1.02rem, 1.6vw, 1.18rem); max-width: 470px; }
+    .hero__ctas { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2.4rem; }
+    .hero__hint {
+      position: absolute; left: 50%; transform: translateX(-50%); bottom: 1.6rem;
+      font-size: .72rem; letter-spacing: .24em; text-transform: uppercase; color: var(--text-2);
+      display: flex; align-items: center; gap: .6rem; pointer-events: none;
+    }
+    .hero__hint i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2.2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity: .35; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.15); } }
+    @media (max-width: 760px) { .hero__hint { display: none; } }
+
+    /* ---------- Granos flotantes (decoración) ----------
+       Clases genéricas: .grano + modificador de posición .grano--1 … .grano--6
+       Inserta tus PNG/WebP sin fondo (≈ 260 × 260 px) en el src de cada <img class="grano">. */
+    .granos { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .grano {
+      position: absolute; width: clamp(34px, 5vw, 70px); height: auto;
+      filter: drop-shadow(0 14px 18px rgba(0,0,0,.55));
+      animation: flotar 4s ease-in-out infinite;
+      will-change: transform;
+    }
+    .grano--1 { top: 12%; left: 4%;  --r: -18deg; animation-delay: 0s; }
+    .grano--2 { top: 86%; left: 44%;  --r: 34deg;  width: clamp(26px, 3.4vw, 48px); animation-delay: -1.3s; animation-duration: 5s; }
+    .grano--3 { top: 18%; right: 6%; --r: 62deg;  animation-delay: -2.1s; animation-duration: 4.6s; }
+    .grano--4 { bottom: 10%; right: 12%; --r: -40deg; width: clamp(28px, 3.8vw, 54px); animation-delay: -.7s; }
+    .grano--5 { top: 9%; left: 40%; --r: 12deg;  width: clamp(22px, 2.6vw, 38px); opacity: .7; animation-delay: -3s; animation-duration: 5.4s; }
+    .grano--6 { top: 6%;  left: 58%; --r: -70deg; width: clamp(24px, 3vw, 42px); opacity: .8; animation-delay: -1.8s; }
+    @keyframes flotar {
+      0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+      50%      { transform: translateY(-9px) rotate(calc(var(--r, 0deg) + 4deg)); }
+    }
+
+    /* ---------- Atributos ---------- */
+    .attrs { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+    @media (min-width: 760px) { .attrs { grid-template-columns: repeat(3, 1fr); } }
+    .attr {
+      padding: 2.2rem 2rem; border: 1px solid var(--line); border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(35,26,19,.75), rgba(35,26,19,.25));
+      transition: border-color .4s ease, transform .4s ease;
+    }
+    .attr:hover { border-color: rgba(212,139,71,.45); transform: translateY(-4px); }
+    .attr__icon {
+      width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center;
+      border: 1px solid var(--line); color: var(--accent); margin-bottom: 1.5rem;
+    }
+    .attr__icon svg { width: 24px; height: 24px; }
+    .attr h3 { font-size: 1.45rem; margin-bottom: .6rem; }
+    .attr p { color: var(--text-2); font-size: .97rem; }
+
+    /* ---------- Banda de ambiente ---------- */
+    .story { display: grid; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+    @media (min-width: 900px) { .story { grid-template-columns: 1.05fr 1fr; } }
+    .story__img { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); aspect-ratio: 4 / 3; }
+    .story__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s ease; }
+    .story__img:hover img { transform: scale(1.04); }
+    .story__img figcaption {
+      position: absolute; left: 1rem; bottom: 1rem; padding: .45rem .9rem; border-radius: 999px;
+      background: rgba(20,14,10,.75); backdrop-filter: blur(8px); font-size: .78rem; color: var(--text-2);
+    }
+    .story__txt h2 { font-size: clamp(2rem, 4.6vw, 3.1rem); margin: 1rem 0 1.25rem; }
+    .story__txt p { color: var(--text-2); margin-bottom: 1rem; }
+    .stats { display: flex; gap: 2.4rem; margin-top: 2rem; flex-wrap: wrap; }
+    .stats strong { display: block; font-family: var(--serif); font-size: 2.3rem; font-weight: 400; color: var(--accent); line-height: 1; }
+    .stats span { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-2); }
+
+    /* ---------- Menú destacado (tarjetas con PNG saliendo del borde) ---------- */
+    .featured { display: grid; gap: 6.5rem 1.6rem; grid-template-columns: 1fr; padding-top: 5.5rem; }
+    @media (min-width: 700px) { .featured { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1020px) { .featured { grid-template-columns: repeat(3, 1fr); } }
+    .card {
+      position: relative; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 2rem; padding-top: 9.5rem; box-shadow: var(--glow);
+      transition: transform .5s cubic-bezier(.2,.7,.2,1), border-color .5s ease, box-shadow .5s ease;
+    }
+    .card:hover { transform: translateY(-6px); border-color: rgba(212,139,71,.4); box-shadow: 0 30px 60px rgba(212,139,71,.12); }
+    .card::before {
+      content: ""; position: absolute; left: 50%; top: 0; width: 70%; height: 140px; transform: translate(-50%, -40%);
+      background: radial-gradient(closest-side, rgba(212,139,71,.22), transparent); pointer-events: none;
+    }
+    /* Foto del producto sin fondo: 900 × 900 px (PNG/WebP transparente). Sobresale del borde superior. */
+    .card__img {
+      position: absolute; left: 50%; top: 0; width: 230px; height: 230px; object-fit: contain;
+      transform: translate(-50%, -48%);
+      filter: drop-shadow(0 26px 30px rgba(0,0,0,.6));
+      transition: transform .6s cubic-bezier(.2,.7,.2,1);
+    }
+    .card:hover .card__img { transform: translate(-50%, -54%) rotate(-3deg) scale(1.04); }
+    .card__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+    .card h3 { font-size: 1.6rem; }
+    .price {
+      flex-shrink: 0; padding: .4rem .95rem; border-radius: 999px;
+      background: rgba(212,139,71,.12); border: 1px solid rgba(212,139,71,.35);
+      color: var(--accent); font-weight: 700; font-size: .95rem; letter-spacing: .02em;
+    }
+    .card p { color: var(--text-2); margin-top: .8rem; font-size: .96rem; }
+    .card__tags { display: flex; gap: .5rem; margin-top: 1.4rem; flex-wrap: wrap; }
+    .card__tags span { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-2); border: 1px solid var(--line); padding: .3rem .7rem; border-radius: 999px; }
+
+    /* ---------- Menú completo ---------- */
+    .menu-full { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--bg) 0%, #1A130E 50%, var(--bg) 100%); }
+    .menu-grid { display: grid; gap: 3rem 4rem; grid-template-columns: 1fr; position: relative; z-index: 1; }
+    @media (min-width: 900px) { .menu-grid { grid-template-columns: repeat(3, 1fr); } }
+    .menu-cat h3 { font-size: 1.7rem; padding-bottom: 1rem; margin-bottom: 1.4rem; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; gap: .7rem; }
+    .menu-cat h3 small { font-family: var(--sans); font-size: .7rem; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+    .menu-item { margin-bottom: 1.35rem; }
+    .menu-item__row { display: flex; align-items: baseline; gap: .6rem; }
+    .menu-item__name { font-weight: 600; font-size: 1.02rem; }
+    .menu-item__dots { flex: 1; border-bottom: 1px dotted rgba(176,163,152,.35); transform: translateY(-4px); min-width: 1.5rem; }
+    .menu-item__price { font-family: var(--serif); font-size: 1.1rem; color: var(--accent); }
+    .menu-item p { font-size: .88rem; color: var(--text-2); margin-top: .15rem; }
+    /* Fotos decorativas de repostería: 900 × 900 px sin fondo */
+    .deco { position: absolute; pointer-events: none; filter: drop-shadow(0 30px 30px rgba(0,0,0,.6)); opacity: .9; z-index: 0; }
+    .deco--a { width: clamp(140px, 18vw, 250px); right: -40px; top: 6%; animation: flotar 6s ease-in-out infinite; --r: 14deg; }
+    .deco--b { width: clamp(120px, 15vw, 210px); left: -50px; bottom: 4%; animation: flotar 7s ease-in-out infinite; --r: -12deg; opacity: .55; }
+    @media (max-width: 899px) { .deco--a { top: 1%; right: -60px; opacity: .35; } .deco--b { display: none; } }
+
+    /* ---------- Galería ---------- */
+    .gallery { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
+    @media (min-width: 900px) { .gallery { grid-template-columns: 1.4fr 1fr 1fr; } .gallery figure:first-child { grid-row: span 2; } }
+    .gallery figure { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); position: relative; min-height: 180px; }
+    .gallery figure:first-child { grid-column: span 2; }
+    @media (min-width: 900px) { .gallery figure:first-child { grid-column: auto; } }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s ease; }
+    .gallery figure:hover img { transform: scale(1.05); }
+    .gallery .tile-product { display: grid; place-items: center; background: radial-gradient(circle at 50% 60%, #3A2A1E, var(--bg-2) 70%); padding: 1.2rem; }
+    .gallery .tile-product img { width: 78%; height: auto; object-fit: contain; filter: drop-shadow(0 20px 22px rgba(0,0,0,.55)); }
+
+    /* ---------- Ubicación ---------- */
+    .visit { display: grid; gap: 2rem; }
+    @media (min-width: 960px) { .visit { grid-template-columns: 1fr 1.25fr; align-items: stretch; } }
+    .visit__info { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(2rem, 4vw, 3rem); box-shadow: var(--glow); }
+    .visit__addr { font-family: var(--serif); font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.2; margin: 1rem 0 2rem; }
+    .visit__row { display: flex; gap: 1rem; padding: 1.1rem 0; border-top: 1px solid var(--line); }
+    .visit__row svg { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; margin-top: .2rem; }
+    .visit__row strong { display: block; font-weight: 600; }
+    .visit__row span { color: var(--text-2); font-size: .95rem; }
+    .visit__ctas { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+    .map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); min-height: 380px; position: relative; }
+    .map iframe {
+      position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+      filter: grayscale(100%) invert(90%) contrast(80%) hue-rotate(180deg);
+    }
+
+    /* ---------- CTA final ---------- */
+    .cta-band { text-align: center; position: relative; overflow: hidden; }
+    .cta-band h2 { font-size: clamp(2.3rem, 6vw, 4.2rem); max-width: 820px; margin: 1.2rem auto 1.4rem; }
+    .cta-band p { color: var(--text-2); max-width: 520px; margin: 0 auto 2.2rem; }
+    .cta-band__cup { width: clamp(150px, 20vw, 220px); margin: 0 auto 1rem; filter: drop-shadow(0 30px 30px rgba(0,0,0,.6)); animation: flotar 5s ease-in-out infinite; }
+
+    /* ---------- Footer ---------- */
+    .footer { border-top: 1px solid var(--line); padding: 3.5rem 0 2.2rem; }
+    .footer__grid { display: grid; gap: 2.2rem; grid-template-columns: 1fr; }
+    @media (min-width: 760px) { .footer__grid { grid-template-columns: 1.4fr 1fr 1fr; } }
+    .footer p, .footer li { color: var(--text-2); font-size: .93rem; }
+    .footer h4 { font-size: .74rem; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; font-weight: 600; }
+    .footer ul { list-style: none; display: grid; gap: .55rem; }
+    .footer a:hover { color: var(--text); }
+    .socials { display: flex; gap: .7rem; margin-top: 1.3rem; }
+    .socials a { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; color: var(--text); transition: border-color .3s, color .3s; }
+    .socials a:hover { border-color: var(--accent); color: var(--accent); }
+    .socials svg { width: 18px; height: 18px; }
+    .footer__base { margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .82rem; color: var(--text-2); }
+
+    /* ---------- WhatsApp flotante ---------- */
+    .wa-float {
+      position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 60; width: 56px; height: 56px; border-radius: 50%;
+      display: grid; place-items: center; background: var(--accent); color: var(--bg);
+      box-shadow: 0 14px 30px rgba(0,0,0,.45); transition: transform .3s, background .3s;
+    }
+    .wa-float:hover { transform: scale(1.07); background: var(--accent-hover); }
+    .wa-float svg { width: 26px; height: 26px; }
+
+    /* ---------- Scroll reveal ---------- */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease-out, transform .8s ease-out; }
+    .reveal.is-in { opacity: 1; transform: none; }
+    .reveal[data-delay="1"] { transition-delay: .12s; }
+    .reveal[data-delay="2"] { transition-delay: .24s; }
+    .reveal[data-delay="3"] { transition-delay: .36s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVEGACIÓN ===================== -->
+  <header class="nav" id="nav">
+    <div class="wrap nav__in">
+      <a href="#inicio" class="logo" aria-label="Zunoo, inicio">ZUNOO<span>.</span></a>
+      <nav class="nav__links" aria-label="Principal">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#favoritos">Favoritos</a>
+        <a href="#menu">Menú</a>
+        <a href="#visitanos">Visítanos</a>
+      </nav>
+      <a href="#visitanos" class="btn">Visítanos hoy</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="inicio">
+      <div class="hero__media" id="heroMedia">
+        <!-- Imagen principal: 1600 × 900 px. La taza se ubica a la derecha; ajusta object-position y FOCUS_X en el script si cambias la foto. -->
+        <img id="heroImg" src="img/hero.webp" width="1600" height="900" alt="Cappuccino Zunoo con arte latte del logotipo, rodeado de granos de café y galletas" fetchpriority="high">
+        <canvas id="heroCanvas" aria-hidden="true"></canvas>
+      </div>
+
+      <div class="granos" aria-hidden="true">
+        <img class="grano grano--1" src="img/grano-frontal.webp"   width="260" height="260" alt="">
+        <img class="grano grano--2" src="img/grano-diagonal.webp"  width="260" height="260" alt="">
+        <img class="grano grano--5" src="img/grano-horizontal.webp" width="260" height="260" alt="">
+      </div>
+
+      <div class="wrap">
+        <div class="hero__content">
+          <span class="eyebrow reveal">Café de especialidad · Torreón</span>
+          <h1 class="reveal" data-delay="1">El arte del buen café, <em>en cada detalle.</em></h1>
+          <p class="reveal" data-delay="2">Despierta tus sentidos con granos seleccionados de origen, tostados con paciencia y servidos por manos que aman su oficio.</p>
+          <div class="hero__ctas reveal" data-delay="3">
+            <a href="#menu" class="btn">Descubrir el menú</a>
+            <a href="#visitanos" class="btn btn--ghost">Cómo llegar</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero__hint" aria-hidden="true"><i></i>Mueve el cursor sobre el café</div>
+    </section>
+
+    <!-- ===================== ATRIBUTOS ===================== -->
+    <section class="section" id="nosotros">
+      <div class="granos" aria-hidden="true">
+        <img class="grano grano--3" src="img/grano-lateral.webp" width="260" height="260" alt="">
+      </div>
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Nuestra esencia</span>
+          <h2>Tres razones para <em>quedarte.</em></h2>
+        </div>
+        <div class="attrs">
+          <article class="attr reveal">
+            <div class="attr__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><ellipse cx="12" cy="12" rx="6.5" ry="9" transform="rotate(35 12 12)"/><path d="M8.5 5.5c3 3 4 9 7 13"/></svg></div>
+            <h3>Granos de Especialidad</h3>
+            <p>Seleccionamos cafés mexicanos de altura y los tostamos en lotes pequeños para resaltar sus notas de cacao, caramelo y fruta.</p>
+          </article>
+          <article class="attr reveal" data-delay="1">
+            <div class="attr__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h13v4a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6v-4Z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3c0 1.5 1.5 1.5 1.5 3M12 3c0 1.5 1.5 1.5 1.5 3"/></svg></div>
+            <h3>Baristas Expertos</h3>
+            <p>Cada taza se calibra a mano: molienda, temperatura y textura de leche exactas para un resultado consistente y memorable.</p>
+          </article>
+          <article class="attr reveal" data-delay="2">
+            <div class="attr__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2M5.6 5.6l1.4 1.4M3 12h2M19 12h2M17 7l1.4-1.4"/><path d="M8 15a4 4 0 1 1 8 0"/><path d="M4 19h16"/></svg></div>
+            <h3>Ambiente Único</h3>
+            <p>Luz cálida, madera y música suave. Un refugio para leer, conversar o simplemente detener el día un momento.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HISTORIA / AMBIENTE ===================== -->
+    <section class="section" style="padding-top:0">
+      <div class="wrap story">
+        <!-- Foto de ambiente: 1448 × 1086 px -->
+        <figure class="story__img reveal">
+          <img src="img/ambiente-preparacion.webp" width="1448" height="1086" loading="lazy" alt="Barista sirviendo leche texturizada en una taza de cappuccino">
+          <figcaption>Preparado al momento, frente a ti</figcaption>
+        </figure>
+        <div class="story__txt reveal" data-delay="1">
+          <span class="eyebrow">Hecho con calma</span>
+          <h2>Del grano a tu taza, <em>sin atajos.</em></h2>
+          <p>En Zunoo creemos que el buen café no se apresura. Extraemos cada espresso con precisión y texturizamos la leche hasta lograr esa seda que dibuja nuestro emblema en tu taza.</p>
+          <p>Acompáñalo con repostería horneada cada mañana y quédate el tiempo que quieras.</p>
+          <div class="stats">
+            <div><strong>100%</strong><span>Arábica</span></div>
+            <div><strong>12+</strong><span>Métodos</span></div>
+            <div><strong>Diario</strong><span>Horneado</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MENÚ DESTACADO ===================== -->
+    <section class="section" id="favoritos" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Favoritos de la casa</span>
+          <h2>Nuestra selección <em>para ti.</em></h2>
+          <p>Las bebidas que nuestros clientes piden una y otra vez.</p>
+        </div>
+
+        <div class="featured">
+          <article class="card reveal">
+            <!-- Foto sin fondo: 900 × 900 px -->
+            <img class="card__img" src="img/cappuccino.webp" width="900" height="900" loading="lazy" alt="Cappuccino de especialidad con arte latte">
+            <div class="card__top">
+              <h3>Cappuccino de Especialidad</h3>
+              <span class="price">$68</span>
+            </div>
+            <p>Doble espresso de origen con leche sedosa y una capa de espuma densa. Notas de cacao y nuez.</p>
+            <div class="card__tags"><span>Caliente</span><span>12 oz</span></div>
+          </article>
+
+          <article class="card reveal" data-delay="1">
+            <img class="card__img" src="img/latte-frio.webp" width="900" height="900" loading="lazy" alt="Latte caramelo frío en vaso de vidrio con hielo">
+            <div class="card__top">
+              <h3>Latte Caramelo Frío</h3>
+              <span class="price">$78</span>
+            </div>
+            <p>Espresso sobre leche fría y hielo, endulzado con caramelo artesanal de la casa. Refrescante y suave.</p>
+            <div class="card__tags"><span>Frío</span><span>16 oz</span></div>
+          </article>
+
+          <article class="card reveal" data-delay="2">
+            <img class="card__img" src="img/vaso-zunoo.webp" width="900" height="900" loading="lazy" alt="Mocha doble en vaso Zunoo para llevar">
+            <div class="card__top">
+              <h3>Mocha Doble</h3>
+              <span class="price">$82</span>
+            </div>
+            <p>Doble carga de espresso con chocolate semiamargo y leche cremosa. Intenso, profundo, reconfortante.</p>
+            <div class="card__tags"><span>Caliente</span><span>Para llevar</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MENÚ COMPLETO ===================== -->
+    <section class="section menu-full" id="menu">
+      <!-- Decoración sin fondo: 900 × 900 px -->
+      <img class="deco deco--a" src="img/croissant.webp" width="900" height="900" loading="lazy" alt="" aria-hidden="true">
+      <img class="deco deco--b" src="img/galleta.webp" width="900" height="900" loading="lazy" alt="" aria-hidden="true">
+      <div class="granos" aria-hidden="true">
+        <img class="grano grano--4" src="img/grano-posterior.webp" width="260" height="260" alt="">
+        <img class="grano grano--6" src="img/grano-frontal.webp" width="260" height="260" alt="">
+      </div>
+
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <span class="eyebrow">La carta</span>
+          <h2>Menú <em>completo.</em></h2>
+          <p>Precios en pesos mexicanos. Pregunta por nuestras leches vegetales sin costo extra.</p>
+        </div>
+
+        <div class="menu-grid">
+          <div class="menu-cat reveal">
+            <h3>Calientes <small>Hot</small></h3>
+            <div class="menu-item">
+              <div class="menu-item__row"><span class="menu-item__name">Espresso</span><span class="menu-item__dots"></span><span class="menu-item__price">$42</span></div>
+              <p>Doble shot, intenso y aromático.</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__row"><span class="menu-item__name">Americano</span><span class="menu-item__dots"></span><span class="menu-item__price">$48</span></div>
+              <p>Espresso alargado con agua caliente.</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__row"><span class="menu-item__name">Flat White</span><span class="menu-item__dots"></span><span class="menu-item__price">$62</span></div>
+              <p>Ristretto doble con microespuma fina.</p>
+            </div>
+          </div>
+
+          <div class="menu-cat reveal" data-delay="1">
+            <h3>Fríos <small>Iced</small></h3>
+            <div class="menu-item">
+              <div class="menu-item__row"><span class="menu-item__name">Cold Brew</span><span class="menu-item__dots"></span><span class="menu-item__price">$65</span></div>
+              <p>Extracción en frío por 18 horas.</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__row"><span class="menu-item__name">Iced Americano</span><span class="menu-item__dots"></span><span class="menu-item__price">$55</span></div>
+              <p>Espresso sobre hielo, limpio y ligero.</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__row"><span class="menu-item__name">Frappé Clásico</span><span class="menu-item__dots"></span><span class="menu-item__price">$75</span></div>
+              <p>Café frappé cremoso con un toque de vainilla.</p>
+            </div>
+          </div>
+
+          <div class="menu-cat reveal" data-delay="2">
+            <h3>Repostería <small>Bakery</small></h3>
+            <div class="menu-item">
+              <div class="menu-item__row"><span class="menu-item__name">Croissant de Almendra</span><span class="menu-item__dots"></span><span class="menu-item__price">$58</span></div>
+              <p>Hojaldre de mantequilla con crema de almendra.</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__row"><span class="menu-item__name">Cheesecake de Frutos Rojos</span><span class="menu-item__dots"></span><span class="menu-item__price">$78</span></div>
+              <p>Estilo New York con coulis de la casa.</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__row"><span class="menu-item__name">Galleta de Chocolate</span><span class="menu-item__dots"></span><span class="menu-item__price">$38</span></div>
+              <p>Trozos de chocolate semiamargo, centro suave.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GALERÍA ===================== -->
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="gallery">
+          <figure class="reveal"><img src="img/ambiente-lectura.webp" width="1448" height="1086" loading="lazy" alt="Cappuccino junto a un libro abierto sobre mesa de madera"></figure>
+          <figure class="reveal tile-product" data-delay="1"><img src="img/pastel.webp" width="900" height="900" loading="lazy" alt="Rebanada de pastel de chocolate"></figure>
+          <figure class="reveal" data-delay="2"><img src="img/ambiente-2.webp" width="1448" height="1086" loading="lazy" alt="Pastel de chocolate y café en mesa con luz cálida"></figure>
+          <figure class="reveal tile-product" data-delay="1"><img src="img/croissant.webp" width="900" height="900" loading="lazy" alt="Croissant de mantequilla"></figure>
+          <figure class="reveal tile-product" data-delay="2"><img src="img/galleta.webp" width="900" height="900" loading="lazy" alt="Galleta con chispas de chocolate"></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== UBICACIÓN Y HORARIOS ===================== -->
+    <section class="section" id="visitanos" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Visítanos</span>
+          <h2>Tu mesa <em>te espera.</em></h2>
+        </div>
+        <div class="visit">
+          <div class="visit__info reveal">
+            <span class="eyebrow">Dirección</span>
+            <!-- EDITAR: dirección real -->
+            <p class="visit__addr">Av. Morelos 123, Centro<br>Torreón, Coahuila</p>
+            <div class="visit__row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              <div><strong>Horarios</strong><span>Lunes a Sábado · 8:00 AM a 9:00 PM<br>Domingo · Cerrado</span></div>
+            </div>
+            <div class="visit__row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+              <div><strong>Pedidos y reservaciones</strong><span>Escríbenos por WhatsApp y te respondemos al momento.</span></div>
+            </div>
+            <div class="visit__ctas">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Av.+Morelos+123+Centro+Torre%C3%B3n+Coahuila">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                Cómo llegar
+              </a>
+              <!-- EDITAR: cambia wa.me/ por wa.me/52TU_NUMERO -->
+              <a class="btn btn--ghost js-wa" target="_blank" rel="noopener" href="https://wa.me/?text=Hola%20Zunoo%2C%20quiero%20hacer%20un%20pedido">WhatsApp</a>
+            </div>
+          </div>
+          <div class="map reveal" data-delay="1">
+            <iframe title="Mapa de ubicación de Zunoo" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=Av.%20Morelos%20123%2C%20Centro%2C%20Torre%C3%B3n%2C%20Coahuila&z=16&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA FINAL ===================== -->
+    <section class="section cta-band" style="padding-top:0">
+      <div class="wrap">
+        <img class="cta-band__cup reveal" src="img/vaso-zunoo.webp" width="900" height="900" loading="lazy" alt="Vaso para llevar con el logotipo de Zunoo">
+        <span class="eyebrow reveal">Te esperamos</span>
+        <h2 class="reveal">Despierta tus sentidos. <em>Visítanos hoy.</em></h2>
+        <p class="reveal">Tu próxima taza favorita está a unos pasos.</p>
+        <a href="#visitanos" class="btn reveal">Cómo llegar</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <a href="#inicio" class="logo">ZUNOO<span>.</span></a>
+          <p style="margin-top:1rem;max-width:340px">Cafetería de especialidad. El arte del buen café, en cada detalle.</p>
+          <div class="socials">
+            <!-- EDITAR: tu usuario de Instagram -->
+            <a href="https://www.instagram.com/tu_usuario" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <a class="js-wa" href="https://wa.me/?text=Hola%20Zunoo" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4>Visítanos</h4>
+          <ul>
+            <li>Av. Morelos 123, Centro</li>
+            <li>Torreón, Coahuila</li>
+            <li>Lun–Sáb · 8:00 AM – 9:00 PM</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Explora</h4>
+          <ul>
+            <li><a href="#favoritos">Favoritos</a></li>
+            <li><a href="#menu">Menú completo</a></li>
+            <li><a href="#visitanos">Ubicación</a></li>
+            <li><a href="https://www.instagram.com/tu_usuario" target="_blank" rel="noopener">@tu_usuario</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__base">
+        <span>© <span id="year">2026</span> Zunoo Cafetería. Todos los derechos reservados.</span>
+        <span>Hecho con café en Torreón.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float js-wa" href="https://wa.me/?text=Hola%20Zunoo%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg>
+  </a>
+
+  <script>
+  (() => {
+    'use strict';
+
+    /* ---------- Nav y año ---------- */
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('is-scrolled', scrollY > 30);
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ---------- Scroll reveal ---------- */
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+    /* =====================================================================
+       HERO · Distorsión líquida con el cursor
+       Un campo de desplazamiento (velocidad + ondas) vive en una rejilla de
+       baja resolución. Cada cuadro se amortigua de forma exponencial, así que
+       siempre regresa a cero: la imagen vuelve exactamente a su estado original.
+       ===================================================================== */
+    const hero = document.querySelector('.hero');
+    const canvas = document.getElementById('heroCanvas');
+    const img = document.getElementById('heroImg');
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const FOCUS_X = 0.72;          // igual que object-position horizontal de la imagen
+    const GRID_W = 120;            // resolución de la simulación
+    const VEL_DECAY = 0.935;       // qué tan rápido se "asienta" el líquido
+    const WAVE_DAMP = 0.965;
+    const STRENGTH = 0.12;
+
+    const gl = !reduceMotion && canvas.getContext('webgl', { premultipliedAlpha: false, antialias: false });
+    if (!gl) return;
+
+    const vs = `attribute vec2 p; varying vec2 vUv;
+      void main(){ vUv = p * .5 + .5; gl_Position = vec4(p, 0., 1.); }`;
+    const fs = `precision highp float;
+      varying vec2 vUv;
+      uniform sampler2D uImg, uDisp;
+      uniform vec2 uRes, uImgRes;
+      uniform float uFocus, uTime, uStrength;
+      vec2 cover(vec2 uv){
+        float rs = uRes.x / uRes.y, ri = uImgRes.x / uImgRes.y;
+        vec2 s = rs > ri ? vec2(1., ri / rs) : vec2(rs / ri, 1.);
+        vec2 o = (1. - s) * vec2(uFocus, .5);
+        return uv * s + o;
+      }
+      void main(){
+        vec2 uv = vec2(vUv.x, 1. - vUv.y);
+        vec4 d = texture2D(uDisp, uv);
+        vec2 v = (floor(d.rg * 255. + .5) - 128.) / 127.; // 128 = reposo exacto
+        float a = clamp(length(v), 0., 1.);
+        vec2 swirl = vec2(sin(uv.y * 34. + uTime * 3.1), cos(uv.x * 30. - uTime * 2.7)) * .006 * a;
+        vec2 off = v * uStrength + swirl;
+        vec2 base = cover(uv);
+        float ca = .012 * a;
+        float r = texture2D(uImg, cover(uv - off * (1. + ca * 8.))).r;
+        vec4 g  = texture2D(uImg, cover(uv - off));
+        float b = texture2D(uImg, cover(uv - off * (1. - ca * 8.))).b;
+        vec3 col = vec3(r, g.g, b);
+        col += a * a * .06 * vec3(1., .75, .45); // brillo cálido en la cresta del líquido
+        gl_FragColor = vec4(col, 1.);
+      }`;
+
+    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
+    const prog = gl.createProgram();
+    gl.attachShader(prog, sh(gl.VERTEX_SHADER, vs));
+    gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, fs));
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+    gl.useProgram(prog);
+
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, 'p');
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+    const U = (n) => gl.getUniformLocation(prog, n);
+    const uRes = U('uRes'), uImgRes = U('uImgRes'), uTime = U('uTime');
+    gl.uniform1i(U('uImg'), 0);
+    gl.uniform1i(U('uDisp'), 1);
+    gl.uniform1f(U('uFocus'), FOCUS_X);
+    gl.uniform1f(U('uStrength'), STRENGTH);
+
+    const makeTex = (unit) => {
+      const t = gl.createTexture();
+      gl.activeTexture(gl.TEXTURE0 + unit);
+      gl.bindTexture(gl.TEXTURE_2D, t);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      return t;
+    };
+    const imgTex = makeTex(0);
+    const dispTex = makeTex(1);
+
+    // Campo de simulación
+    let gw = GRID_W, gh = 68, vx, vy, h0, h1, pixels;
+    const alloc = () => {
+      const r = canvas.clientHeight / Math.max(1, canvas.clientWidth);
+      gh = Math.max(24, Math.round(gw * r));
+      const n = gw * gh;
+      vx = new Float32Array(n); vy = new Float32Array(n);
+      h0 = new Float32Array(n); h1 = new Float32Array(n);
+      pixels = new Uint8Array(n * 4);
+      for (let i = 0; i < n; i++) { pixels[i*4] = 128; pixels[i*4+1] = 128; pixels[i*4+3] = 255; }
+    };
+
+    const resize = () => {
+      const dpr = Math.min(devicePixelRatio || 1, 1.75);
+      canvas.width = Math.round(canvas.clientWidth * dpr);
+      canvas.height = Math.round(canvas.clientHeight * dpr);
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.uniform2f(uRes, canvas.width, canvas.height);
+      alloc();
+      upload();
+      kick();
+    };
+
+    const upload = () => {
+      gl.activeTexture(gl.TEXTURE1);
+      gl.bindTexture(gl.TEXTURE_2D, dispTex);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gw, gh, 0, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
+    };
+
+    // Entrada del cursor / dedo
+    let last = null;
+    const splat = (x, y, dx, dy) => {
+      const R = 7, R2 = R * R;
+      const cx = x * gw, cy = y * gh;
+      const k = 0.08;
+      for (let j = Math.max(1, (cy - R) | 0); j < Math.min(gh - 1, cy + R + 1); j++) {
+        for (let i = Math.max(1, (cx - R) | 0); i < Math.min(gw - 1, cx + R + 1); i++) {
+          const d2 = (i - cx) ** 2 + (j - cy) ** 2;
+          if (d2 > R2) continue;
+          const f = Math.exp(-d2 / (R2 * 0.28));
+          const id = j * gw + i;
+          vx[id] += dx * k * f;
+          vy[id] += dy * k * f;
+          h0[id] += Math.min(1.2, Math.hypot(dx, dy) * 0.02) * f;
+        }
+      }
+    };
+    const onMove = (cx, cy) => {
+      const r = canvas.getBoundingClientRect();
+      const x = (cx - r.left) / r.width, y = (cy - r.top) / r.height;
+      if (x < 0 || x > 1 || y < 0 || y > 1) { last = null; return; }
+      if (last) {
+        const dx = (x - last.x) * gw, dy = (y - last.y) * gh;
+        const steps = Math.min(6, Math.ceil(Math.hypot(dx, dy) / 3));
+        for (let s = 1; s <= steps; s++) {
+          const t = s / steps;
+          splat(last.x + (x - last.x) * t, last.y + (y - last.y) * t, dx, dy);
+        }
+        kick();
+      }
+      last = { x, y };
+    };
+    hero.addEventListener('pointermove', (e) => onMove(e.clientX, e.clientY), { passive: true });
+    hero.addEventListener('pointerleave', () => { last = null; });
+    hero.addEventListener('touchmove', (e) => { const t = e.touches[0]; onMove(t.clientX, t.clientY); }, { passive: true });
+    hero.addEventListener('touchend', () => { last = null; });
+
+    // Paso de simulación: advección suave + ondas amortiguadas
+    const step = () => {
+      let energy = 0;
+      const n = gw * gh;
+      for (let j = 1; j < gh - 1; j++) {
+        for (let i = 1; i < gw - 1; i++) {
+          const id = j * gw + i;
+          // difusión ligera de la velocidad -> se siente viscoso, como líquido
+          vx[id] = (vx[id] * 0.6 + (vx[id-1] + vx[id+1] + vx[id-gw] + vx[id+gw]) * 0.1) * VEL_DECAY;
+          vy[id] = (vy[id] * 0.6 + (vy[id-1] + vy[id+1] + vy[id-gw] + vy[id+gw]) * 0.1) * VEL_DECAY;
+          // ecuación de onda
+          h1[id] = ((h0[id-1] + h0[id+1] + h0[id-gw] + h0[id+gw]) * 0.5 - h1[id]) * WAVE_DAMP;
+        }
+      }
+      const tmp = h0; h0 = h1; h1 = tmp;
+      for (let j = 1; j < gh - 1; j++) {
+        for (let i = 1; i < gw - 1; i++) {
+          const id = j * gw + i;
+          // pequeños valores se cortan a cero: estado final idéntico al original
+          if (Math.abs(vx[id]) < 1e-4) vx[id] = 0;
+          if (Math.abs(vy[id]) < 1e-4) vy[id] = 0;
+          if (Math.abs(h0[id]) < 1e-4) h0[id] = 0;
+          const gx = (h0[id+1] - h0[id-1]) * 0.5;
+          const gy = (h0[id+gw] - h0[id-gw]) * 0.5;
+          const ox = Math.max(-1, Math.min(1, vx[id] + gx));
+          const oy = Math.max(-1, Math.min(1, vy[id] + gy));
+          pixels[id*4]   = 128 + Math.round(ox * 127);
+          pixels[id*4+1] = 128 + Math.round(oy * 127);
+          energy += Math.abs(vx[id]) + Math.abs(vy[id]) + Math.abs(h0[id]);
+        }
+      }
+      return energy;
+    };
+
+    let running = false, visible = true;
+    const t0 = performance.now();
+    const draw = () => {
+      gl.uniform1f(uTime, (performance.now() - t0) / 1000);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    };
+    const frame = () => {
+      const e = step();
+      upload();
+      draw();
+      if (e > 0 && visible) requestAnimationFrame(frame);
+      else {
+        // Reposo: limpiamos todo y dibujamos la imagen intacta
+        vx.fill(0); vy.fill(0); h0.fill(0); h1.fill(0);
+        for (let i = 0; i < gw * gh; i++) { pixels[i*4] = 128; pixels[i*4+1] = 128; }
+        upload(); draw();
+        running = false;
+      }
+    };
+    const kick = () => { if (!running && ready) { running = true; requestAnimationFrame(frame); } };
+
+    new IntersectionObserver(([en]) => { visible = en.isIntersecting; if (visible) kick(); }).observe(hero);
+
+    let ready = false;
+    const start = () => {
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, imgTex);
+      try {
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+      } catch (err) { return; } // p. ej. abierto con file:// -> se queda la imagen normal
+      gl.uniform2f(uImgRes, img.naturalWidth, img.naturalHeight);
+      ready = true;
+      resize();
+      hero.classList.add('has-gl');
+    };
+    let rt;
+    addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => ready && resize(), 150); });
+    if (img.complete && img.naturalWidth) start(); else img.addEventListener('load', start, { once: true });
+  })();
+  </script>
+</body>
+</html>
