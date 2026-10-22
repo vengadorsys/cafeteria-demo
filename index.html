@@ -3,34 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zunoo · Cafetería de especialidad en Torreón</title>
-  <meta name="description" content="Zunoo, cafetería de especialidad en Torreón, Coahuila. Cappuccino, lattes fríos, cold brew y repostería artesanal en un ambiente cálido. Visítanos hoy.">
+  <title>Zunoo · Cafetería en Torreón</title>
+  <meta name="description" content="Zunoo, cafetería en Torreón, Coahuila. Cappuccino, lattes fríos, cold brew y repostería. Consulta el menú con precios, horarios y cómo llegar.">
   <meta name="theme-color" content="#140E0A">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Zunoo · Cafetería de especialidad">
-  <meta property="og:description" content="El arte del buen café, en cada detalle. Granos de especialidad, baristas expertos y repostería artesanal.">
+  <meta property="og:title" content="Zunoo · Cafetería">
+  <meta property="og:description" content="Café caliente y frío, algo dulce para acompañar y un lugar para tomarte tu tiempo.">
   <meta property="og:image" content="img/hero.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,600&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="img/hero.webp">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
 
   <!-- ============================================================
        SEO LOCAL · JSON-LD
-       EDITAR: dirección, teléfono, horarios, coordenadas e Instagram.
+       PENDIENTE DE CONFIRMAR: dirección, código postal, coordenadas, horario e Instagram.
        ============================================================ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "CafeOrCoffeeShop",
     "name": "Zunoo",
-    "description": "Cafetería de especialidad con granos seleccionados, baristas expertos y repostería artesanal.",
+    "description": "Cafetería con bebidas de café calientes y frías y repostería.",
     "image": "img/hero.webp",
     "logo": "img/vaso-zunoo.webp",
     "url": "https://zunoo.com.mx/",
     "telephone": "+52 492 105 9504",
     "priceRange": "$$",
-    "servesCuisine": ["Café de especialidad", "Repostería"],
+    "servesCuisine": ["Café", "Repostería"],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Av. Morelos 123, Centro",
@@ -49,622 +49,554 @@
     "sameAs": ["https://www.instagram.com/tu_usuario"],
     "hasMenu": {
       "@type": "Menu",
-      "hasMenuSection": [{
-        "@type": "MenuSection",
-        "name": "Favoritos",
-        "hasMenuItem": [
+      "hasMenuSection": [
+        { "@type": "MenuSection", "name": "Calientes", "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Espresso", "offers": { "@type": "Offer", "price": "42", "priceCurrency": "MXN" } },
+          { "@type": "MenuItem", "name": "Americano", "offers": { "@type": "Offer", "price": "48", "priceCurrency": "MXN" } },
+          { "@type": "MenuItem", "name": "Flat White", "offers": { "@type": "Offer", "price": "62", "priceCurrency": "MXN" } },
           { "@type": "MenuItem", "name": "Cappuccino de Especialidad", "offers": { "@type": "Offer", "price": "68", "priceCurrency": "MXN" } },
-          { "@type": "MenuItem", "name": "Latte Caramelo Frío", "offers": { "@type": "Offer", "price": "78", "priceCurrency": "MXN" } },
           { "@type": "MenuItem", "name": "Mocha Doble", "offers": { "@type": "Offer", "price": "82", "priceCurrency": "MXN" } }
-        ]
-      }]
+        ]},
+        { "@type": "MenuSection", "name": "Fríos", "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Cold Brew", "offers": { "@type": "Offer", "price": "65", "priceCurrency": "MXN" } },
+          { "@type": "MenuItem", "name": "Iced Americano", "offers": { "@type": "Offer", "price": "55", "priceCurrency": "MXN" } },
+          { "@type": "MenuItem", "name": "Latte Caramelo Frío", "offers": { "@type": "Offer", "price": "78", "priceCurrency": "MXN" } },
+          { "@type": "MenuItem", "name": "Frappé Clásico", "offers": { "@type": "Offer", "price": "75", "priceCurrency": "MXN" } }
+        ]},
+        { "@type": "MenuSection", "name": "Repostería", "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Croissant de Almendra", "offers": { "@type": "Offer", "price": "58", "priceCurrency": "MXN" } },
+          { "@type": "MenuItem", "name": "Cheesecake de Frutos Rojos", "offers": { "@type": "Offer", "price": "78", "priceCurrency": "MXN" } },
+          { "@type": "MenuItem", "name": "Galleta de Chocolate", "offers": { "@type": "Offer", "price": "38", "priceCurrency": "MXN" } }
+        ]}
+      ]
     }
   }
   </script>
 
   <style>
     :root {
-      --bg: #140E0A;
-      --bg-2: #231A13;
-      --accent: #D48B47;
-      --accent-hover: #E69A55;
-      --text: #F4ECE6;
-      --text-2: #B0A398;
-      --line: #3A2A1E;
-      --radius: 12px;
-      --glow: 0 20px 40px rgba(212, 139, 71, 0.08);
+      /* Claros (predominantes) */
+      --cream: #F6EFE6;
+      --cream-2: #EEE3D5;
+      --ink: #2B1D14;          /* texto principal sobre crema */
+      --ink-2: #5A4636;        /* texto secundario sobre crema (contraste ≈ 8:1) */
+      --caramel: #D48B47;      /* botones (texto oscuro encima) */
+      --caramel-hover: #E69A55;
+      --caramel-ink: #8E4E1B;  /* acento como texto sobre crema (contraste ≥ 5:1) */
+      --line: #DCCBB8;
+      /* Oscuros (portada, carta, pie) */
+      --dark: #140E0A;
+      --dark-2: #1F1610;
+      --on-dark: #F6EFE6;
+      --on-dark-2: #E2D4C6;    /* secundario sobre oscuro (contraste ≈ 12:1) */
+      --caramel-on-dark: #E9A566;
+      --line-dark: #3A2A1E;
+
       --serif: "Playfair Display", Georgia, serif;
-      --sans: "Manrope", "Inter", system-ui, sans-serif;
-      --wrap: min(1180px, 100% - 2.5rem);
+      --sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --wrap: min(1160px, 100% - 2.5rem);
+      --header-h: 72px;
+      --radius: 14px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); -webkit-text-size-adjust: 100%; }
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-weight: 300;
-      line-height: 1.65;
+      background: var(--cream);
+      color: var(--ink);
+      font: 400 1.0625rem/1.7 var(--sans);   /* 17 px */
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
     img { display: block; max-width: 100%; height: auto; }
-    a { color: inherit; text-decoration: none; }
+    a { color: inherit; }
     .wrap { width: var(--wrap); margin-inline: auto; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-    h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.12; letter-spacing: -0.01em; }
-    h1 em, h2 em { font-style: italic; font-weight: 600; color: var(--accent); }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.12; letter-spacing: -0.01em; text-wrap: balance; }
+    h2 { font-size: clamp(2rem, 4.6vw, 3rem); }
+    h2 em, h1 em { font-style: italic; font-weight: 500; }
 
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: .75rem;
-      font-size: .74rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase;
-      color: var(--accent);
+    .kicker {
+      display: block; font-size: .8rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--caramel-ink); margin-bottom: .9rem;
     }
-    .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+    .on-dark .kicker { color: var(--caramel-on-dark); }
+    .lead { font-size: 1.125rem; color: var(--ink-2); max-width: 56ch; }
 
-    .section { padding: clamp(5rem, 11vw, 8.5rem) 0; position: relative; }
-    .section-head { max-width: 640px; margin-bottom: clamp(2.5rem, 6vw, 4rem); }
-    .section-head h2 { font-size: clamp(2.1rem, 5.2vw, 3.4rem); margin-top: 1rem; }
-    .section-head p { color: var(--text-2); margin-top: 1rem; font-size: 1.05rem; }
-    .center { text-align: center; margin-inline: auto; }
-    .center .eyebrow::after { content: ""; width: 28px; height: 1px; background: currentColor; }
+    :focus-visible { outline: 3px solid var(--caramel); outline-offset: 3px; border-radius: 6px; }
+    .skip { position: absolute; left: 1rem; top: -100px; z-index: 100; background: var(--caramel); color: var(--dark); padding: .7rem 1rem; border-radius: 8px; font-weight: 700; text-decoration: none; }
+    .skip:focus { top: 1rem; }
 
     /* ---------- Botones ---------- */
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
-      padding: 1rem 1.9rem; border-radius: 999px; border: 0; cursor: pointer;
-      font: 700 .95rem/1 var(--sans); letter-spacing: .02em;
-      background: var(--accent); color: var(--bg);
-      transition: background .3s ease, box-shadow .3s ease, transform .3s ease;
+      display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+      min-height: 48px; padding: .8rem 1.6rem; border-radius: 999px; border: 0; cursor: pointer;
+      font: 700 1rem/1 var(--sans); text-decoration: none;
+      background: var(--caramel); color: var(--dark);
+      transition: background .25s ease, box-shadow .25s ease;
     }
-    .btn:hover { background: var(--accent-hover); box-shadow: 0 0 0 6px rgba(212,139,71,.12), 0 12px 32px rgba(230,154,85,.28); transform: translateY(-1px); }
-    .btn--ghost { background: transparent; color: var(--text); box-shadow: inset 0 0 0 1px var(--line); }
-    .btn--ghost:hover { background: rgba(244,236,230,.06); box-shadow: inset 0 0 0 1px var(--accent); }
-    .btn svg { width: 18px; height: 18px; }
+    .btn:hover { background: var(--caramel-hover); box-shadow: 0 8px 24px rgba(212,139,71,.3); }
+    .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .btn--line { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+    .btn--line:hover { background: var(--ink); color: var(--cream); box-shadow: none; }
+    .on-dark .btn--line { color: var(--on-dark); box-shadow: inset 0 0 0 1.5px rgba(246,239,230,.7); }
+    .on-dark .btn--line:hover { background: var(--on-dark); color: var(--dark); }
+    .link {
+      font-weight: 700; color: var(--caramel-ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px;
+      display: inline-flex; align-items: center; min-height: 44px;
+    }
 
-    /* ---------- Navegación ---------- */
-    .nav {
-      position: fixed; inset: 0 0 auto; z-index: 50;
-      transition: background .4s ease, border-color .4s ease, backdrop-filter .4s ease;
-      border-bottom: 1px solid transparent;
+    /* ---------- Encabezado ---------- */
+    .header {
+      position: fixed; inset: 0 0 auto; z-index: 50; color: var(--on-dark);
+      transition: background .35s ease, color .35s ease, box-shadow .35s ease;
     }
-    .nav.is-scrolled { background: rgba(20,14,10,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-color: var(--line); }
-    .nav__in { display: flex; align-items: center; justify-content: space-between; height: 76px; }
-    .logo { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; letter-spacing: .14em; }
-    .logo span { color: var(--accent); }
-    .nav__links { display: none; gap: 2.2rem; font-size: .9rem; color: var(--text-2); }
-    .nav__links a { transition: color .25s; }
-    .nav__links a:hover { color: var(--text); }
-    .nav .btn { padding: .75rem 1.3rem; font-size: .85rem; }
-    @media (min-width: 860px) { .nav__links { display: flex; } }
+    .header.is-solid { background: rgba(246,239,230,.94); color: var(--ink); box-shadow: 0 1px 0 var(--line); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    .header__in { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: var(--header-h); }
+    .logo { font-family: var(--serif); font-size: 1.55rem; font-weight: 600; letter-spacing: .14em; text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+    .logo span { color: var(--caramel); }
+    .nav { display: flex; align-items: center; gap: .4rem; }
+    .nav__list { list-style: none; display: flex; gap: .2rem; }
+    .nav__list a {
+      display: inline-flex; align-items: center; min-height: 44px; padding: 0 .9rem;
+      text-decoration: none; font-weight: 600; font-size: .98rem; border-radius: 999px;
+    }
+    .nav__list a:hover { background: rgba(127,90,60,.14); }
+    .nav__cta { margin-left: .6rem; min-height: 44px; padding: .6rem 1.2rem; font-size: .95rem; }
+    .nav__toggle {
+      display: none; width: 48px; height: 48px; border-radius: 50%; border: 0; cursor: pointer;
+      background: transparent; color: inherit; place-items: center;
+    }
+    .nav__toggle svg { width: 26px; height: 26px; }
+    .nav__toggle .i-close { display: none; }
+    .nav__toggle[aria-expanded="true"] .i-open { display: none; }
+    .nav__toggle[aria-expanded="true"] .i-close { display: block; }
 
-    /* ---------- Hero con distorsión líquida ---------- */
-    .hero {
-      position: relative; min-height: 100svh; display: flex; align-items: center;
-      overflow: hidden; isolation: isolate; padding: 7rem 0 5rem;
+    @media (max-width: 860px) {
+      .nav__toggle { display: grid; }
+      .nav__panel {
+        position: fixed; left: 0; right: 0; top: var(--header-h);
+        background: var(--cream); color: var(--ink); box-shadow: 0 18px 30px rgba(20,14,10,.18);
+        padding: .5rem 1.25rem 1.5rem; display: none;
+      }
+      .nav__panel.is-open { display: block; }
+      .nav__list { flex-direction: column; gap: 0; }
+      .nav__list a { width: 100%; min-height: 52px; font-size: 1.1rem; border-radius: 10px; border-bottom: 1px solid var(--line); }
+      .nav__cta { margin: 1rem 0 0; width: 100%; }
+      .header.menu-open { background: var(--cream); color: var(--ink); }
     }
+    @media (min-width: 861px) { .nav__panel { display: flex; align-items: center; } }
+
+    /* ---------- Portada (oscura, inmersiva) ---------- */
+    .hero { position: relative; background: var(--dark); color: var(--on-dark); overflow: hidden; isolation: isolate; }
     .hero__media { position: absolute; inset: 0; z-index: -2; }
-    /* Imagen principal del hero: 1600 × 900 px (WebP). El canvas WebGL la distorsiona; la <img> queda como respaldo. */
-    .hero__media img, .hero__media canvas {
-      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% 50%;
-    }
-    .hero__media canvas { opacity: 0; transition: opacity .6s ease; }
+    /* Imagen principal: 1600 × 900 px. El canvas WebGL la distorsiona; la <img> es el respaldo. */
+    .hero__media img, .hero__media canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 100% 40%; }
+    .hero__media canvas { opacity: 0; transition: opacity .6s ease; touch-action: pan-y; }
     .hero.has-gl .hero__media canvas { opacity: 1; }
-    .hero::after {
-      content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    .hero__shade { position: absolute; inset: 0; z-index: -1; pointer-events: none;
       background:
-        linear-gradient(90deg, rgba(20,14,10,.92) 0%, rgba(20,14,10,.55) 42%, rgba(20,14,10,0) 70%),
-        linear-gradient(0deg, var(--bg) 0%, rgba(20,14,10,0) 22%);
+        linear-gradient(180deg, rgba(20,14,10,.75) 0, rgba(20,14,10,0) 150px),
+        linear-gradient(90deg, rgba(20,14,10,.94) 0%, rgba(20,14,10,.72) 34%, rgba(20,14,10,0) 58%),
+        linear-gradient(0deg, var(--dark) 0%, rgba(20,14,10,0) 24%);
     }
+    .hero__in { min-height: min(100svh, 940px); display: flex; align-items: center; padding: calc(var(--header-h) + 3rem) 0 6rem; }
+    .hero__text { max-width: 520px; }
+    .hero h1 { font-size: clamp(2.7rem, 6.4vw, 4.6rem); margin-bottom: 1.2rem; }
+    .hero p { font-size: clamp(1.08rem, 1.5vw, 1.22rem); color: var(--on-dark-2); max-width: 40ch; }
+    .hero__ctas { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+    .hero__hint { position: absolute; right: 1.5rem; bottom: 1.4rem; font-size: .82rem; color: var(--on-dark-2); display: flex; align-items: center; gap: .5rem; pointer-events: none; }
+    .hero__hint i { width: 7px; height: 7px; border-radius: 50%; background: var(--caramel); }
+
     @media (max-width: 760px) {
-      .hero { align-items: flex-end; }
-      .hero::after { background: linear-gradient(0deg, var(--bg) 8%, rgba(20,14,10,.78) 48%, rgba(20,14,10,.15) 100%); }
-    }
-    .hero__content { max-width: 600px; pointer-events: none; }
-    .hero__content > * { pointer-events: auto; }
-    .hero h1 { font-size: clamp(2.8rem, 8vw, 5.4rem); margin: 1.4rem 0 1.4rem; }
-    .hero p { color: var(--text-2); font-size: clamp(1.02rem, 1.6vw, 1.18rem); max-width: 470px; }
-    .hero__ctas { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2.4rem; }
-    .hero__hint {
-      position: absolute; left: 50%; transform: translateX(-50%); bottom: 1.6rem;
-      font-size: .72rem; letter-spacing: .24em; text-transform: uppercase; color: var(--text-2);
-      display: flex; align-items: center; gap: .6rem; pointer-events: none;
-    }
-    .hero__hint i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2.2s ease-in-out infinite; }
-    @keyframes pulse { 0%,100% { opacity: .35; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.15); } }
-    @media (max-width: 760px) { .hero__hint { display: none; } }
-
-    /* ---------- Granos flotantes (decoración) ----------
-       Clases genéricas: .grano + modificador de posición .grano--1 … .grano--6
-       Inserta tus PNG/WebP sin fondo (≈ 260 × 260 px) en el src de cada <img class="grano">. */
-    .granos { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
-    .grano {
-      position: absolute; width: clamp(34px, 5vw, 70px); height: auto;
-      filter: drop-shadow(0 14px 18px rgba(0,0,0,.55));
-      animation: flotar 4s ease-in-out infinite;
-      will-change: transform;
-    }
-    .grano--1 { top: 12%; left: 4%;  --r: -18deg; animation-delay: 0s; }
-    .grano--2 { top: 86%; left: 44%;  --r: 34deg;  width: clamp(26px, 3.4vw, 48px); animation-delay: -1.3s; animation-duration: 5s; }
-    .grano--3 { top: 18%; right: 6%; --r: 62deg;  animation-delay: -2.1s; animation-duration: 4.6s; }
-    .grano--4 { bottom: 10%; right: 12%; --r: -40deg; width: clamp(28px, 3.8vw, 54px); animation-delay: -.7s; }
-    .grano--5 { top: 9%; left: 40%; --r: 12deg;  width: clamp(22px, 2.6vw, 38px); opacity: .7; animation-delay: -3s; animation-duration: 5.4s; }
-    .grano--6 { top: 6%;  left: 58%; --r: -70deg; width: clamp(24px, 3vw, 42px); opacity: .8; animation-delay: -1.8s; }
-    @keyframes flotar {
-      0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
-      50%      { transform: translateY(-9px) rotate(calc(var(--r, 0deg) + 4deg)); }
+      .hero { padding-top: var(--header-h); }
+      .hero__media { position: relative; inset: auto; height: min(118vw, 58svh); }
+      .hero__media img, .hero__media canvas { object-position: 92% 34%; }
+      .hero__shade { background: linear-gradient(0deg, var(--dark) 0%, rgba(20,14,10,0) 30%); }
+      .hero__shade { top: var(--header-h); height: min(118vw, 58svh); }
+      .hero__in { min-height: 0; padding: .5rem 0 3.2rem; }
+      .hero h1 { font-size: clamp(2.3rem, 10vw, 3rem); }
+      .hero__ctas .btn { flex: 1 1 160px; }
+      .hero__hint { display: none; }
     }
 
-    /* ---------- Atributos ---------- */
-    .attrs { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
-    @media (min-width: 760px) { .attrs { grid-template-columns: repeat(3, 1fr); } }
-    .attr {
-      padding: 2.2rem 2rem; border: 1px solid var(--line); border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(35,26,19,.75), rgba(35,26,19,.25));
-      transition: border-color .4s ease, transform .4s ease;
-    }
-    .attr:hover { border-color: rgba(212,139,71,.45); transform: translateY(-4px); }
-    .attr__icon {
-      width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center;
-      border: 1px solid var(--line); color: var(--accent); margin-bottom: 1.5rem;
-    }
-    .attr__icon svg { width: 24px; height: 24px; }
-    .attr h3 { font-size: 1.45rem; margin-bottom: .6rem; }
-    .attr p { color: var(--text-2); font-size: .97rem; }
+    /* Transición suave oscuro → crema */
+    .fade-light { height: 70px; background: linear-gradient(180deg, var(--dark) 0%, var(--cream) 100%); }
+    .fade-dark { height: 70px; background: linear-gradient(180deg, var(--cream-2) 0%, #6b5646 45%, var(--dark) 100%); }
+    .fade-back { height: 70px; background: linear-gradient(180deg, var(--dark) 0%, #6b5646 55%, var(--cream) 100%); }
 
-    /* ---------- Banda de ambiente ---------- */
-    .story { display: grid; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
-    @media (min-width: 900px) { .story { grid-template-columns: 1.05fr 1fr; } }
-    .story__img { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); aspect-ratio: 4 / 3; }
-    .story__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s ease; }
-    .story__img:hover img { transform: scale(1.04); }
-    .story__img figcaption {
-      position: absolute; left: 1rem; bottom: 1rem; padding: .45rem .9rem; border-radius: 999px;
-      background: rgba(20,14,10,.75); backdrop-filter: blur(8px); font-size: .78rem; color: var(--text-2);
-    }
-    .story__txt h2 { font-size: clamp(2rem, 4.6vw, 3.1rem); margin: 1rem 0 1.25rem; }
-    .story__txt p { color: var(--text-2); margin-bottom: 1rem; }
-    .stats { display: flex; gap: 2.4rem; margin-top: 2rem; flex-wrap: wrap; }
-    .stats strong { display: block; font-family: var(--serif); font-size: 2.3rem; font-weight: 400; color: var(--accent); line-height: 1; }
-    .stats span { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-2); }
+    .section { padding: clamp(3.5rem, 8vw, 6rem) 0; position: relative; }
+    .section__head { margin-bottom: clamp(2rem, 5vw, 3.2rem); max-width: 640px; }
+    .section__head .lead { margin-top: .9rem; }
 
-    /* ---------- Menú destacado (tarjetas con PNG saliendo del borde) ---------- */
-    .featured { display: grid; gap: 6.5rem 1.6rem; grid-template-columns: 1fr; padding-top: 5.5rem; }
-    @media (min-width: 700px) { .featured { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1020px) { .featured { grid-template-columns: repeat(3, 1fr); } }
-    .card {
-      position: relative; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius);
-      padding: 2rem; padding-top: 9.5rem; box-shadow: var(--glow);
-      transition: transform .5s cubic-bezier(.2,.7,.2,1), border-color .5s ease, box-shadow .5s ease;
+    /* ---------- Favoritos ---------- */
+    .favs { display: grid; gap: 3rem 2.5rem; grid-template-columns: 1fr; }
+    @media (min-width: 680px) { .favs { grid-template-columns: repeat(3, 1fr); } }
+    .fav { display: grid; grid-template-rows: auto auto 1fr; }
+    /* Foto sin fondo: 900 × 900 px. Todas comparten la misma caja para equilibrar su tamaño. */
+    .fav__media { position: relative; height: 230px; margin-bottom: 1.4rem; }
+    .fav__media::after { /* sombra de apoyo sobre la "mesa" */
+      content: ""; position: absolute; bottom: -6px; left: 50%; width: 62%; height: 18px; transform: translateX(-50%);
+      background: radial-gradient(closest-side, rgba(43,29,20,.28), transparent); z-index: 0;
     }
-    .card:hover { transform: translateY(-6px); border-color: rgba(212,139,71,.4); box-shadow: 0 30px 60px rgba(212,139,71,.12); }
-    .card::before {
-      content: ""; position: absolute; left: 50%; top: 0; width: 70%; height: 140px; transform: translate(-50%, -40%);
-      background: radial-gradient(closest-side, rgba(212,139,71,.22), transparent); pointer-events: none;
+    .fav__media img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: contain; object-position: 50% 100%; }
+    .fav__row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-bottom: .55rem; border-bottom: 1px solid var(--line); }
+    .fav h3 { font-size: 1.5rem; }
+    .price { font-weight: 700; font-size: 1.15rem; color: var(--caramel-ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .fav p { color: var(--ink-2); margin-top: .7rem; }
+    @media (max-width: 679px) {
+      .fav { grid-template-columns: 120px 1fr; grid-template-rows: auto; column-gap: 1.2rem; align-items: center; }
+      .fav__media { height: 130px; margin: 0; grid-row: span 2; }
+      .fav h3 { font-size: 1.3rem; }
+      .fav p { margin-top: .4rem; font-size: 1rem; }
     }
-    /* Foto del producto sin fondo: 900 × 900 px (PNG/WebP transparente). Sobresale del borde superior. */
-    .card__img {
-      position: absolute; left: 50%; top: 0; width: 230px; height: 230px; object-fit: contain;
-      transform: translate(-50%, -48%);
-      filter: drop-shadow(0 26px 30px rgba(0,0,0,.6));
-      transition: transform .6s cubic-bezier(.2,.7,.2,1);
+    .favs__more { margin-top: 2.4rem; }
+
+    /* ---------- Experiencia Zunoo ---------- */
+    .exp { background: var(--cream-2); }
+    .exp__grid { display: grid; gap: 2.5rem; align-items: center; }
+    @media (min-width: 920px) { .exp__grid { grid-template-columns: 1.25fr 1fr; gap: 4.5rem; } }
+    .exp__photos { position: relative; }
+    .exp__main { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; }
+    .exp__main img { width: 100%; height: 100%; object-fit: cover; }
+    .exp__second {
+      position: absolute; width: 38%; right: -6%; bottom: -12%; border-radius: var(--radius); overflow: hidden;
+      aspect-ratio: 4 / 3; border: 6px solid var(--cream-2);
     }
-    .card:hover .card__img { transform: translate(-50%, -54%) rotate(-3deg) scale(1.04); }
-    .card__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
-    .card h3 { font-size: 1.6rem; }
-    .price {
-      flex-shrink: 0; padding: .4rem .95rem; border-radius: 999px;
-      background: rgba(212,139,71,.12); border: 1px solid rgba(212,139,71,.35);
-      color: var(--accent); font-weight: 700; font-size: .95rem; letter-spacing: .02em;
-    }
-    .card p { color: var(--text-2); margin-top: .8rem; font-size: .96rem; }
-    .card__tags { display: flex; gap: .5rem; margin-top: 1.4rem; flex-wrap: wrap; }
-    .card__tags span { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-2); border: 1px solid var(--line); padding: .3rem .7rem; border-radius: 999px; }
+    .exp__second img { width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 919px) { .exp__text { order: -1; } .exp__second { right: 4%; bottom: -10%; width: 42%; } .exp__photos { margin-bottom: 2.5rem; } }
+    .note { font-size: .82rem; color: var(--ink-2); margin-top: .7rem; }
+    .exp__text h2 { margin-bottom: 1rem; }
+    .exp__list { list-style: none; margin-top: 1.6rem; display: grid; gap: .25rem; }
+    .exp__list li { display: flex; gap: .8rem; align-items: center; padding: .7rem 0; border-top: 1px solid var(--line); font-weight: 600; }
+    .exp__list li::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--caramel); flex-shrink: 0; }
 
-    /* ---------- Menú completo ---------- */
-    .menu-full { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--bg) 0%, #1A130E 50%, var(--bg) 100%); }
-    .menu-grid { display: grid; gap: 3rem 4rem; grid-template-columns: 1fr; position: relative; z-index: 1; }
-    @media (min-width: 900px) { .menu-grid { grid-template-columns: repeat(3, 1fr); } }
-    .menu-cat h3 { font-size: 1.7rem; padding-bottom: 1rem; margin-bottom: 1.4rem; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; gap: .7rem; }
-    .menu-cat h3 small { font-family: var(--sans); font-size: .7rem; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
-    .menu-item { margin-bottom: 1.35rem; }
-    .menu-item__row { display: flex; align-items: baseline; gap: .6rem; }
-    .menu-item__name { font-weight: 600; font-size: 1.02rem; }
-    .menu-item__dots { flex: 1; border-bottom: 1px dotted rgba(176,163,152,.35); transform: translateY(-4px); min-width: 1.5rem; }
-    .menu-item__price { font-family: var(--serif); font-size: 1.1rem; color: var(--accent); }
-    .menu-item p { font-size: .88rem; color: var(--text-2); margin-top: .15rem; }
-    /* Fotos decorativas de repostería: 900 × 900 px sin fondo */
-    .deco { position: absolute; pointer-events: none; filter: drop-shadow(0 30px 30px rgba(0,0,0,.6)); opacity: .9; z-index: 0; }
-    .deco--a { width: clamp(140px, 18vw, 250px); right: -40px; top: 6%; animation: flotar 6s ease-in-out infinite; --r: 14deg; }
-    .deco--b { width: clamp(120px, 15vw, 210px); left: -50px; bottom: 4%; animation: flotar 7s ease-in-out infinite; --r: -12deg; opacity: .55; }
-    @media (max-width: 899px) { .deco--a { top: 1%; right: -60px; opacity: .35; } .deco--b { display: none; } }
+    /* ---------- Menú (oscuro, alto contraste) ---------- */
+    .menu { background: var(--dark); color: var(--on-dark); }
+    .menu .lead { color: var(--on-dark-2); }
+    .menu__grid { display: grid; gap: 2.8rem 3.5rem; grid-template-columns: 1fr; }
+    @media (min-width: 900px) { .menu__grid { grid-template-columns: repeat(3, 1fr); } }
+    .menu__cat h3 { font-size: 1.7rem; padding-bottom: .8rem; margin-bottom: .6rem; border-bottom: 1px solid var(--line-dark); }
+    .menu__list { list-style: none; }
+    .menu__item { padding: .85rem 0; border-bottom: 1px solid rgba(58,42,30,.6); }
+    .menu__row { display: flex; align-items: baseline; gap: .8rem; }
+    .menu__name { font-weight: 700; font-size: 1.08rem; }
+    .menu__dots { flex: 1; border-bottom: 1px dotted rgba(226,212,198,.35); transform: translateY(-5px); min-width: 1rem; }
+    .menu__price { font-weight: 700; font-size: 1.12rem; color: var(--caramel-on-dark); font-variant-numeric: tabular-nums; }
+    .menu__desc { color: var(--on-dark-2); font-size: .98rem; margin-top: .1rem; }
+    .tag { display: inline-block; margin-right: .5rem; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--dark); background: var(--caramel-on-dark); padding: .12rem .5rem; border-radius: 999px; vertical-align: .15em; }
+    .menu__foot { margin-top: 2.4rem; color: var(--on-dark-2); font-size: .98rem; }
+    /* Accesos rápidos a categorías (solo móvil) */
+    .menu__jump { display: none; gap: .5rem; margin: -1rem 0 2rem; flex-wrap: wrap; }
+    .menu__jump a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1.1rem; border-radius: 999px; text-decoration: none; font-weight: 600; box-shadow: inset 0 0 0 1px rgba(226,212,198,.45); }
+    .menu__jump a:hover { background: rgba(246,239,230,.1); }
+    @media (max-width: 899px) { .menu__jump { display: flex; } }
 
-    /* ---------- Galería ---------- */
-    .gallery { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
-    @media (min-width: 900px) { .gallery { grid-template-columns: 1.4fr 1fr 1fr; } .gallery figure:first-child { grid-row: span 2; } }
-    .gallery figure { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); position: relative; min-height: 180px; }
-    .gallery figure:first-child { grid-column: span 2; }
-    @media (min-width: 900px) { .gallery figure:first-child { grid-column: auto; } }
-    .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s ease; }
-    .gallery figure:hover img { transform: scale(1.05); }
-    .gallery .tile-product { display: grid; place-items: center; background: radial-gradient(circle at 50% 60%, #3A2A1E, var(--bg-2) 70%); padding: 1.2rem; }
-    .gallery .tile-product img { width: 78%; height: auto; object-fit: contain; filter: drop-shadow(0 20px 22px rgba(0,0,0,.55)); }
+    /* ---------- Postres ---------- */
+    .sweet__grid { display: grid; gap: 2.5rem; align-items: center; }
+    @media (min-width: 920px) { .sweet__grid { grid-template-columns: 1fr 1.15fr; gap: 4rem; } }
+    .sweet__photo { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; }
+    .sweet__photo img { width: 100%; height: 100%; object-fit: cover; }
+    .sweet__items { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2rem; }
+    .sweet__items li { text-align: center; }
+    .sweet__img { height: 140px; margin-bottom: .8rem; }
+    .sweet__img img { width: 100%; height: 100%; object-fit: contain; object-position: 50% 100%; }
+    .sweet__items strong { display: block; font-weight: 700; line-height: 1.3; }
+    .sweet__items span { color: var(--ink-2); font-size: .95rem; }
+    @media (max-width: 520px) { .sweet__img { height: 96px; } .sweet__items { gap: .8rem; } .sweet__items strong { font-size: .95rem; } }
 
-    /* ---------- Ubicación ---------- */
-    .visit { display: grid; gap: 2rem; }
-    @media (min-width: 960px) { .visit { grid-template-columns: 1fr 1.25fr; align-items: stretch; } }
-    .visit__info { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(2rem, 4vw, 3rem); box-shadow: var(--glow); }
-    .visit__addr { font-family: var(--serif); font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.2; margin: 1rem 0 2rem; }
-    .visit__row { display: flex; gap: 1rem; padding: 1.1rem 0; border-top: 1px solid var(--line); }
-    .visit__row svg { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; margin-top: .2rem; }
-    .visit__row strong { display: block; font-weight: 600; }
-    .visit__row span { color: var(--text-2); font-size: .95rem; }
-    .visit__ctas { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
-    .map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); min-height: 380px; position: relative; }
-    .map iframe {
-      position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
-      filter: grayscale(100%) invert(90%) contrast(80%) hue-rotate(180deg);
-    }
+    /* ---------- Visítanos ---------- */
+    .visit__grid { display: grid; gap: 2.5rem; }
+    @media (min-width: 920px) { .visit__grid { grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; } }
+    .visit__addr { font-family: var(--serif); font-size: clamp(1.6rem, 3.2vw, 2.2rem); line-height: 1.25; margin: .2rem 0 1.6rem; }
+    .visit__dl { display: grid; gap: 1.1rem; margin-bottom: 2rem; }
+    .visit__dl div { display: grid; grid-template-columns: 110px 1fr; gap: 1rem; padding-top: 1.1rem; border-top: 1px solid var(--line); }
+    .visit__dl dt { font-weight: 700; }
+    .visit__dl dd { color: var(--ink-2); }
+    .visit__dl dd a { color: var(--ink); font-weight: 700; display: inline-flex; align-items: center; min-height: 44px; margin: -10px 0; }
+    .visit__ctas { display: flex; flex-wrap: wrap; gap: .8rem; }
+    .map { border-radius: var(--radius); overflow: hidden; position: relative; width: 100%; min-width: 0; height: clamp(320px, 70vw, 470px); background: var(--cream-2); }
+    .map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(.35) sepia(.18); }
+    @media (max-width: 520px) { .visit__dl div { grid-template-columns: 1fr; gap: .2rem; } .visit__ctas .btn { flex: 1 1 100%; } }
 
-    /* ---------- CTA final ---------- */
-    .cta-band { text-align: center; position: relative; overflow: hidden; }
-    .cta-band h2 { font-size: clamp(2.3rem, 6vw, 4.2rem); max-width: 820px; margin: 1.2rem auto 1.4rem; }
-    .cta-band p { color: var(--text-2); max-width: 520px; margin: 0 auto 2.2rem; }
-    .cta-band__cup { width: clamp(150px, 20vw, 220px); margin: 0 auto 1rem; filter: drop-shadow(0 30px 30px rgba(0,0,0,.6)); animation: flotar 5s ease-in-out infinite; }
-
-    /* ---------- Footer ---------- */
-    .footer { border-top: 1px solid var(--line); padding: 3.5rem 0 2.2rem; }
-    .footer__grid { display: grid; gap: 2.2rem; grid-template-columns: 1fr; }
-    @media (min-width: 760px) { .footer__grid { grid-template-columns: 1.4fr 1fr 1fr; } }
-    .footer p, .footer li { color: var(--text-2); font-size: .93rem; }
-    .footer h4 { font-size: .74rem; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; font-weight: 600; }
-    .footer ul { list-style: none; display: grid; gap: .55rem; }
-    .footer a:hover { color: var(--text); }
-    .socials { display: flex; gap: .7rem; margin-top: 1.3rem; }
-    .socials a { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; color: var(--text); transition: border-color .3s, color .3s; }
-    .socials a:hover { border-color: var(--accent); color: var(--accent); }
-    .socials svg { width: 18px; height: 18px; }
-    .footer__base { margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: .82rem; color: var(--text-2); }
+    /* ---------- Pie ---------- */
+    .footer { background: var(--dark); color: var(--on-dark); padding: 3rem 0 2rem; }
+    .footer__in { display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; justify-content: space-between; align-items: center; }
+    .footer p, .footer small { color: var(--on-dark-2); }
+    .footer__links { display: flex; flex-wrap: wrap; gap: .2rem 1rem; list-style: none; }
+    .footer__links a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; font-weight: 600; }
+    .footer__links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .footer small { display: block; width: 100%; padding-top: 1.5rem; border-top: 1px solid var(--line-dark); font-size: .88rem; }
+    @media (max-width: 760px) { .footer { padding-bottom: 6.5rem; } } /* espacio para el botón flotante */
 
     /* ---------- WhatsApp flotante ---------- */
     .wa-float {
-      position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 60; width: 56px; height: 56px; border-radius: 50%;
-      display: grid; place-items: center; background: var(--accent); color: var(--bg);
-      box-shadow: 0 14px 30px rgba(0,0,0,.45); transition: transform .3s, background .3s;
+      position: fixed; right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom)); z-index: 40;
+      width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--caramel); color: var(--dark); box-shadow: 0 10px 26px rgba(20,14,10,.35);
+      transition: opacity .3s ease, transform .3s ease, visibility .3s;
     }
-    .wa-float:hover { transform: scale(1.07); background: var(--accent-hover); }
+    .wa-float:hover { background: var(--caramel-hover); }
     .wa-float svg { width: 26px; height: 26px; }
+    .wa-float.is-hidden { opacity: 0; visibility: hidden; transform: translateY(12px); }
+    @media (max-width: 760px) { .wa-float { width: 52px; height: 52px; } }
 
-    /* ---------- Scroll reveal ---------- */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease-out, transform .8s ease-out; }
-    .reveal.is-in { opacity: 1; transform: none; }
-    .reveal[data-delay="1"] { transition-delay: .12s; }
-    .reveal[data-delay="2"] { transition-delay: .24s; }
-    .reveal[data-delay="3"] { transition-delay: .36s; }
+    /* ---------- Granos decorativos (solo en márgenes amplios) ----------
+       Clases genéricas: .grano + posición .grano--1 … .grano--3. PNG/WebP sin fondo ≈ 260 × 260 px. */
+    .granos { position: absolute; inset: 0; pointer-events: none; overflow: hidden; display: none; }
+    @media (min-width: 1400px) { .granos { display: block; } }
+    .grano { position: absolute; width: 54px; transform: translateY(var(--py, 0)); }
+    .grano img { width: 100%; filter: drop-shadow(0 10px 12px rgba(20,14,10,.35)); animation: flotar 5s ease-in-out infinite; }
+    .grano--1 { left: calc((100vw - 1160px) / 2 - 110px); top: 14%; }
+    .grano--1 img { rotate: -20deg; }
+    .grano--2 { right: calc((100vw - 1160px) / 2 - 100px); top: 58%; width: 42px; }
+    .grano--2 img { rotate: 40deg; animation-delay: -2s; }
+    .grano--3 { right: calc((100vw - 1160px) / 2 - 110px); top: 20%; width: 46px; }
+    .grano--3 img { rotate: -55deg; animation-delay: -1s; }
+    @keyframes flotar { 0%, 100% { translate: 0 0; } 50% { translate: 0 -6px; } }
+
+    /* ---------- Aparición al hacer scroll (solo si hay JS) ---------- */
+    .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease-out, transform .6s ease-out; }
+    .js .reveal.is-in { opacity: 1; transform: none; }
 
     @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
       *, *::before, *::after { animation: none !important; transition: none !important; }
-      .reveal { opacity: 1; transform: none; }
+      .js .reveal { opacity: 1; transform: none; }
+      .grano { transform: none; }
     }
   </style>
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
 
-  <!-- ===================== NAVEGACIÓN ===================== -->
-  <header class="nav" id="nav">
-    <div class="wrap nav__in">
-      <a href="#inicio" class="logo" aria-label="Zunoo, inicio">ZUNOO<span>.</span></a>
-      <nav class="nav__links" aria-label="Principal">
-        <a href="#nosotros">Nosotros</a>
-        <a href="#favoritos">Favoritos</a>
-        <a href="#menu">Menú</a>
-        <a href="#visitanos">Visítanos</a>
+  <!-- ===================== ENCABEZADO ===================== -->
+  <header class="header" id="header">
+    <div class="wrap header__in">
+      <a href="#inicio" class="logo" aria-label="Zunoo, ir al inicio">ZUNOO<span aria-hidden="true">.</span></a>
+      <nav class="nav" aria-label="Principal">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Abrir menú de navegación">
+          <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+        <div class="nav__panel" id="nav-panel">
+          <ul class="nav__list">
+            <li><a href="#favoritos">Favoritos</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#visitanos">Visítanos</a></li>
+          </ul>
+          <a class="btn nav__cta" href="https://wa.me/524921059504?text=Hola%20Zunoo%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
       </nav>
-      <a href="#visitanos" class="btn">Visítanos hoy</a>
     </div>
   </header>
 
-  <main>
-    <!-- ===================== HERO ===================== -->
-    <section class="hero" id="inicio">
-      <div class="hero__media" id="heroMedia">
-        <!-- Imagen principal: 1600 × 900 px. La taza se ubica a la derecha; ajusta object-position y FOCUS_X en el script si cambias la foto. -->
-        <img id="heroImg" src="img/hero.webp" width="1600" height="900" alt="Cappuccino Zunoo con arte latte del logotipo, rodeado de granos de café y galletas" fetchpriority="high">
+  <main id="contenido">
+    <!-- ===================== 1. PORTADA ===================== -->
+    <section class="hero on-dark" id="inicio" aria-labelledby="hero-title">
+      <div class="hero__media">
+        <!-- Imagen principal: 1600 × 900 px, taza con el emblema de Zunoo -->
+        <img id="heroImg" src="img/hero.webp" width="1600" height="900" alt="Cappuccino con el emblema de Zunoo dibujado en la espuma, junto a granos de café y galletas" fetchpriority="high" decoding="async">
         <canvas id="heroCanvas" aria-hidden="true"></canvas>
       </div>
+      <div class="hero__shade" aria-hidden="true"></div>
+      <div class="wrap hero__in">
+        <div class="hero__text">
+          <span class="kicker">Cafetería · Torreón</span>
+          <h1 id="hero-title">El arte del buen café.</h1>
+          <p>Bebidas calientes y frías, algo dulce para acompañar y un lugar para tomarte tu tiempo.</p>
+          <div class="hero__ctas">
+            <a href="#menu" class="btn">Ver menú</a>
+            <a href="#visitanos" class="btn btn--line">Cómo llegar</a>
+          </div>
+        </div>
+      </div>
+      <p class="hero__hint" aria-hidden="true"><i></i>Pasa el cursor sobre el café</p>
+    </section>
+    <div class="fade-light" aria-hidden="true"></div>
 
+    <!-- ===================== 2. FAVORITOS ===================== -->
+    <section class="section" id="favoritos" aria-labelledby="fav-title" style="padding-top:1rem">
       <div class="granos" aria-hidden="true">
-        <img class="grano grano--1" src="img/grano-frontal.webp"   width="260" height="260" alt="">
-        <img class="grano grano--2" src="img/grano-diagonal.webp"  width="260" height="260" alt="">
-        <img class="grano grano--5" src="img/grano-horizontal.webp" width="260" height="260" alt="">
+        <span class="grano grano--1" data-speed="0.06"><img src="img/grano-frontal.webp" width="260" height="260" alt=""></span>
+        <span class="grano grano--2" data-speed="0.1"><img src="img/grano-diagonal.webp" width="260" height="260" alt=""></span>
       </div>
-
       <div class="wrap">
-        <div class="hero__content">
-          <span class="eyebrow reveal">Café de especialidad · Torreón</span>
-          <h1 class="reveal" data-delay="1">El arte del buen café, <em>en cada detalle.</em></h1>
-          <p class="reveal" data-delay="2">Despierta tus sentidos con granos seleccionados de origen, tostados con paciencia y servidos por manos que aman su oficio.</p>
-          <div class="hero__ctas reveal" data-delay="3">
-            <a href="#menu" class="btn">Descubrir el menú</a>
-            <a href="#visitanos" class="btn btn--ghost">Cómo llegar</a>
-          </div>
+        <div class="section__head reveal">
+          <span class="kicker">Favoritos de la casa</span>
+          <h2 id="fav-title">Lo que más se pide</h2>
         </div>
+        <div class="favs">
+          <article class="fav reveal">
+            <div class="fav__media"><img src="img/cappuccino.webp" width="880" height="900" loading="lazy" decoding="async" alt="Cappuccino en taza blanca con arte latte"></div>
+            <div class="fav__row"><h3>Cappuccino de Especialidad</h3><span class="price">$68</span></div>
+            <p>Espresso con leche vaporizada y una capa de espuma.</p>
+          </article>
+          <article class="fav reveal">
+            <div class="fav__media"><img src="img/latte-frio.webp" width="900" height="874" loading="lazy" decoding="async" alt="Latte frío en vaso de vidrio con hielo"></div>
+            <div class="fav__row"><h3>Latte Caramelo Frío</h3><span class="price">$78</span></div>
+            <p>Espresso, leche fría, caramelo y hielo.</p>
+          </article>
+          <article class="fav reveal">
+            <div class="fav__media"><img src="img/vaso-zunoo.webp" width="900" height="896" loading="lazy" decoding="async" alt="Vaso para llevar con el logotipo de Zunoo"></div>
+            <div class="fav__row"><h3>Mocha Doble</h3><span class="price">$82</span></div>
+            <p>Doble espresso con chocolate y leche.</p>
+          </article>
+        </div>
+        <p class="favs__more"><a class="link" href="#menu">Ver el menú completo →</a></p>
       </div>
-      <div class="hero__hint" aria-hidden="true"><i></i>Mueve el cursor sobre el café</div>
     </section>
 
-    <!-- ===================== ATRIBUTOS ===================== -->
-    <section class="section" id="nosotros">
+    <!-- ===================== 3. EXPERIENCIA ZUNOO ===================== -->
+    <section class="section exp" id="nosotros" aria-labelledby="exp-title">
+      <div class="wrap exp__grid">
+        <div class="reveal">
+          <div class="exp__photos">
+            <!-- Fotos de ambiente: 1448 × 1086 px -->
+            <figure class="exp__main"><img src="img/ambiente-preparacion.webp" width="1448" height="1086" loading="lazy" decoding="async" alt="Barista vertiendo leche vaporizada en una taza de cappuccino"></figure>
+            <figure class="exp__second"><img src="img/ambiente-lectura.webp" width="1448" height="1086" loading="lazy" decoding="async" alt="Taza de café junto a un libro abierto sobre una mesa de madera"></figure>
+          </div>
+          <p class="note">Imágenes ilustrativas.</p>
+        </div>
+        <div class="exp__text reveal">
+          <span class="kicker">Experiencia Zunoo</span>
+          <h2 id="exp-title">Un lugar para tomarte tu tiempo</h2>
+          <p class="lead">Ven por tu café de siempre o quédate a leer, platicar o trabajar un rato. Aquí lo preparamos al momento.</p>
+          <ul class="exp__list">
+            <li>Bebidas de espresso, calientes y frías</li>
+            <li>Repostería para acompañar</li>
+            <li>Pedidos por WhatsApp</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <div class="fade-dark" aria-hidden="true"></div>
+
+    <!-- ===================== 4. MENÚ COMPLETO ===================== -->
+    <section class="section menu on-dark" id="menu" aria-labelledby="menu-title" style="padding-top:2rem">
       <div class="granos" aria-hidden="true">
-        <img class="grano grano--3" src="img/grano-lateral.webp" width="260" height="260" alt="">
+        <span class="grano grano--3" data-speed="0.08"><img src="img/grano-lateral.webp" width="260" height="260" alt=""></span>
       </div>
       <div class="wrap">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Nuestra esencia</span>
-          <h2>Tres razones para <em>quedarte.</em></h2>
+        <div class="section__head reveal">
+          <span class="kicker">La carta</span>
+          <h2 id="menu-title">Menú completo</h2>
+          <p class="lead">Precios en pesos mexicanos.</p>
         </div>
-        <div class="attrs">
-          <article class="attr reveal">
-            <div class="attr__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><ellipse cx="12" cy="12" rx="6.5" ry="9" transform="rotate(35 12 12)"/><path d="M8.5 5.5c3 3 4 9 7 13"/></svg></div>
-            <h3>Granos de Especialidad</h3>
-            <p>Seleccionamos cafés mexicanos de altura y los tostamos en lotes pequeños para resaltar sus notas de cacao, caramelo y fruta.</p>
-          </article>
-          <article class="attr reveal" data-delay="1">
-            <div class="attr__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h13v4a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6v-4Z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3c0 1.5 1.5 1.5 1.5 3M12 3c0 1.5 1.5 1.5 1.5 3"/></svg></div>
-            <h3>Baristas Expertos</h3>
-            <p>Cada taza se calibra a mano: molienda, temperatura y textura de leche exactas para un resultado consistente y memorable.</p>
-          </article>
-          <article class="attr reveal" data-delay="2">
-            <div class="attr__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2M5.6 5.6l1.4 1.4M3 12h2M19 12h2M17 7l1.4-1.4"/><path d="M8 15a4 4 0 1 1 8 0"/><path d="M4 19h16"/></svg></div>
-            <h3>Ambiente Único</h3>
-            <p>Luz cálida, madera y música suave. Un refugio para leer, conversar o simplemente detener el día un momento.</p>
-          </article>
+        <nav class="menu__jump" aria-label="Categorías del menú">
+          <a href="#cat-calientes">Calientes</a>
+          <a href="#cat-frios">Fríos</a>
+          <a href="#cat-reposteria">Repostería</a>
+        </nav>
+        <div class="menu__grid">
+          <section class="menu__cat reveal" id="cat-calientes" aria-labelledby="h-calientes">
+            <h3 id="h-calientes">Calientes</h3>
+            <ul class="menu__list">
+              <li class="menu__item"><div class="menu__row"><span class="menu__name">Espresso</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__price">$42</span></div><p class="menu__desc">Café concentrado, servido corto.</p></li>
+              <li class="menu__item"><div class="menu__row"><span class="menu__name">Americano</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__price">$48</span></div><p class="menu__desc">Espresso con agua caliente.</p></li>
+              <li class="menu__item"><div class="menu__row"><span class="menu__name">Flat White</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__price">$62</span></div><p class="menu__desc">Espresso con leche vaporizada.</p></li>
+              <li class="menu__item"><div class="menu__row"><span class="menu__name">Cappuccino de Especialidad</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__price">$68</span></div><p class="menu__desc"><span class="tag">Favorito</span>Espresso, leche y espuma.</p></li>
+              <li class="menu__item"><div class="menu__row"><span class="menu__name">Mocha Doble</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__price">$82</span></div><p class="menu__desc"><span class="tag">Favorito</span>Doble espresso con chocolate y leche.</p></li>
+            </ul>
+          </section>
+          <section class="menu__cat reveal" id="cat-frios" aria-labelledby="h-frios">
+            <h3 id="h-frios">Fríos</h3>
+            <ul class="menu__list">
+              <li class="menu__item"><div class="menu__row"><span class="menu__name">Cold Brew</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__price">$65</span></div><p class="menu__desc">Café extraído en frío.</p></li>
+              <li class="menu__item"><div class="menu__row"><span class="menu__name">Iced Americano</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__price">$55</span></div><p class="menu__desc">Espresso con agua y hielo.</p></li>
+              <li class="menu__item"><div class="menu__row"><span class="menu__name">Latte Caramelo Frío</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__price">$78</span></div><p class="menu__desc"><span class="tag">Favorito</span>Espresso, leche fría, caramelo y hielo.</p></li>
+              <li class="menu__item"><div class="menu__row"><span class="menu__name">Frappé Clásico</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__price">$75</span></div><p class="menu__desc">Café helado y cremoso.</p></li>
+            </ul>
+          </section>
+          <section class="menu__cat reveal" id="cat-reposteria" aria-labelledby="h-reposteria">
+            <h3 id="h-reposteria">Repostería</h3>
+            <ul class="menu__list">
+              <li class="menu__item"><div class="menu__row"><span class="menu__name">Croissant de Almendra</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__price">$58</span></div><p class="menu__desc">Croissant con almendra.</p></li>
+              <li class="menu__item"><div class="menu__row"><span class="menu__name">Cheesecake de Frutos Rojos</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__price">$78</span></div><p class="menu__desc">Cheesecake con frutos rojos.</p></li>
+              <li class="menu__item"><div class="menu__row"><span class="menu__name">Galleta de Chocolate</span><span class="menu__dots" aria-hidden="true"></span><span class="menu__price">$38</span></div><p class="menu__desc">Galleta con trozos de chocolate.</p></li>
+            </ul>
+          </section>
+        </div>
+        <p class="menu__foot">¿Quieres pedir para llevar? <a class="link" style="color:var(--caramel-on-dark)" href="https://wa.me/524921059504?text=Hola%20Zunoo%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></p>
+      </div>
+    </section>
+    <div class="fade-back" aria-hidden="true"></div>
+
+    <!-- ===================== 5. POSTRES ===================== -->
+    <section class="section sweet" aria-labelledby="sweet-title" style="padding-top:1rem">
+      <div class="wrap sweet__grid">
+        <div class="reveal">
+          <figure class="sweet__photo"><img src="img/ambiente-2.webp" width="1448" height="1086" loading="lazy" decoding="async" alt="Rebanada de pastel de chocolate servida junto a una taza de café"></figure>
+          <p class="note">Imagen ilustrativa.</p>
+        </div>
+        <div class="reveal">
+          <span class="kicker">Algo dulce</span>
+          <h2 id="sweet-title">Para acompañar tu café</h2>
+          <!-- Fotos sin fondo: 900 × 900 px -->
+          <ul class="sweet__items">
+            <li><div class="sweet__img"><img src="img/galleta.webp" width="900" height="895" loading="lazy" decoding="async" alt="Galleta con trozos de chocolate"></div><strong>Galleta de Chocolate</strong><span>$38</span></li>
+            <li><div class="sweet__img"><img src="img/croissant.webp" width="900" height="893" loading="lazy" decoding="async" alt="Croissant horneado"></div><strong>Croissant</strong><span>Ver opciones en la carta</span></li>
+            <li><div class="sweet__img"><img src="img/pastel.webp" width="900" height="899" loading="lazy" decoding="async" alt="Rebanada de pastel de chocolate"></div><strong>Pastel de chocolate</strong><span>Pregunta disponibilidad</span></li>
+          </ul>
+          <p style="margin-top:1.6rem"><a class="link" href="#cat-reposteria">Ver repostería en el menú →</a></p>
         </div>
       </div>
     </section>
 
-    <!-- ===================== HISTORIA / AMBIENTE ===================== -->
-    <section class="section" style="padding-top:0">
-      <div class="wrap story">
-        <!-- Foto de ambiente: 1448 × 1086 px -->
-        <figure class="story__img reveal">
-          <img src="img/ambiente-preparacion.webp" width="1448" height="1086" loading="lazy" alt="Barista sirviendo leche texturizada en una taza de cappuccino">
-          <figcaption>Preparado al momento, frente a ti</figcaption>
-        </figure>
-        <div class="story__txt reveal" data-delay="1">
-          <span class="eyebrow">Hecho con calma</span>
-          <h2>Del grano a tu taza, <em>sin atajos.</em></h2>
-          <p>En Zunoo creemos que el buen café no se apresura. Extraemos cada espresso con precisión y texturizamos la leche hasta lograr esa seda que dibuja nuestro emblema en tu taza.</p>
-          <p>Acompáñalo con repostería horneada cada mañana y quédate el tiempo que quieras.</p>
-          <div class="stats">
-            <div><strong>100%</strong><span>Arábica</span></div>
-            <div><strong>12+</strong><span>Métodos</span></div>
-            <div><strong>Diario</strong><span>Horneado</span></div>
+    <!-- ===================== 6. VISÍTANOS ===================== -->
+    <section class="section" id="visitanos" aria-labelledby="visit-title" style="padding-top:2rem">
+      <div class="wrap visit__grid">
+        <div class="reveal">
+          <span class="kicker">Visítanos</span>
+          <h2 id="visit-title" class="sr-only">Ubicación, horarios y contacto</h2>
+          <!-- PENDIENTE DE CONFIRMAR: dirección real -->
+          <p class="visit__addr">Av. Morelos 123, Centro<br>Torreón, Coahuila</p>
+          <dl class="visit__dl">
+            <div><dt>Horario</dt><dd>Lunes a sábado, 8:00 a 21:00<br>Domingo cerrado</dd></div>
+            <div><dt>WhatsApp</dt><dd><a href="https://wa.me/524921059504?text=Hola%20Zunoo" target="_blank" rel="noopener">492 105 9504</a></dd></div>
+            <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/tu_usuario" target="_blank" rel="noopener">@tu_usuario</a></dd></div>
+          </dl>
+          <div class="visit__ctas">
+            <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Av.+Morelos+123+Centro+Torre%C3%B3n+Coahuila">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              Cómo llegar
+            </a>
+            <a class="btn btn--line" target="_blank" rel="noopener" href="https://wa.me/524921059504?text=Hola%20Zunoo%2C%20quiero%20hacer%20un%20pedido">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg>
+              WhatsApp
+            </a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ===================== MENÚ DESTACADO ===================== -->
-    <section class="section" id="favoritos" style="padding-top:0">
-      <div class="wrap">
-        <div class="section-head center reveal">
-          <span class="eyebrow">Favoritos de la casa</span>
-          <h2>Nuestra selección <em>para ti.</em></h2>
-          <p>Las bebidas que nuestros clientes piden una y otra vez.</p>
+        <div class="map reveal">
+          <iframe title="Mapa de ubicación de Zunoo" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=Av.%20Morelos%20123%2C%20Centro%2C%20Torre%C3%B3n%2C%20Coahuila&z=16&output=embed"></iframe>
         </div>
-
-        <div class="featured">
-          <article class="card reveal">
-            <!-- Foto sin fondo: 900 × 900 px -->
-            <img class="card__img" src="img/cappuccino.webp" width="900" height="900" loading="lazy" alt="Cappuccino de especialidad con arte latte">
-            <div class="card__top">
-              <h3>Cappuccino de Especialidad</h3>
-              <span class="price">$68</span>
-            </div>
-            <p>Doble espresso de origen con leche sedosa y una capa de espuma densa. Notas de cacao y nuez.</p>
-            <div class="card__tags"><span>Caliente</span><span>12 oz</span></div>
-          </article>
-
-          <article class="card reveal" data-delay="1">
-            <img class="card__img" src="img/latte-frio.webp" width="900" height="900" loading="lazy" alt="Latte caramelo frío en vaso de vidrio con hielo">
-            <div class="card__top">
-              <h3>Latte Caramelo Frío</h3>
-              <span class="price">$78</span>
-            </div>
-            <p>Espresso sobre leche fría y hielo, endulzado con caramelo artesanal de la casa. Refrescante y suave.</p>
-            <div class="card__tags"><span>Frío</span><span>16 oz</span></div>
-          </article>
-
-          <article class="card reveal" data-delay="2">
-            <img class="card__img" src="img/vaso-zunoo.webp" width="900" height="900" loading="lazy" alt="Mocha doble en vaso Zunoo para llevar">
-            <div class="card__top">
-              <h3>Mocha Doble</h3>
-              <span class="price">$82</span>
-            </div>
-            <p>Doble carga de espresso con chocolate semiamargo y leche cremosa. Intenso, profundo, reconfortante.</p>
-            <div class="card__tags"><span>Caliente</span><span>Para llevar</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== MENÚ COMPLETO ===================== -->
-    <section class="section menu-full" id="menu">
-      <!-- Decoración sin fondo: 900 × 900 px -->
-      <img class="deco deco--a" src="img/croissant.webp" width="900" height="900" loading="lazy" alt="" aria-hidden="true">
-      <img class="deco deco--b" src="img/galleta.webp" width="900" height="900" loading="lazy" alt="" aria-hidden="true">
-      <div class="granos" aria-hidden="true">
-        <img class="grano grano--4" src="img/grano-posterior.webp" width="260" height="260" alt="">
-        <img class="grano grano--6" src="img/grano-frontal.webp" width="260" height="260" alt="">
-      </div>
-
-      <div class="wrap">
-        <div class="section-head center reveal">
-          <span class="eyebrow">La carta</span>
-          <h2>Menú <em>completo.</em></h2>
-          <p>Precios en pesos mexicanos. Pregunta por nuestras leches vegetales sin costo extra.</p>
-        </div>
-
-        <div class="menu-grid">
-          <div class="menu-cat reveal">
-            <h3>Calientes <small>Hot</small></h3>
-            <div class="menu-item">
-              <div class="menu-item__row"><span class="menu-item__name">Espresso</span><span class="menu-item__dots"></span><span class="menu-item__price">$42</span></div>
-              <p>Doble shot, intenso y aromático.</p>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item__row"><span class="menu-item__name">Americano</span><span class="menu-item__dots"></span><span class="menu-item__price">$48</span></div>
-              <p>Espresso alargado con agua caliente.</p>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item__row"><span class="menu-item__name">Flat White</span><span class="menu-item__dots"></span><span class="menu-item__price">$62</span></div>
-              <p>Ristretto doble con microespuma fina.</p>
-            </div>
-          </div>
-
-          <div class="menu-cat reveal" data-delay="1">
-            <h3>Fríos <small>Iced</small></h3>
-            <div class="menu-item">
-              <div class="menu-item__row"><span class="menu-item__name">Cold Brew</span><span class="menu-item__dots"></span><span class="menu-item__price">$65</span></div>
-              <p>Extracción en frío por 18 horas.</p>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item__row"><span class="menu-item__name">Iced Americano</span><span class="menu-item__dots"></span><span class="menu-item__price">$55</span></div>
-              <p>Espresso sobre hielo, limpio y ligero.</p>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item__row"><span class="menu-item__name">Frappé Clásico</span><span class="menu-item__dots"></span><span class="menu-item__price">$75</span></div>
-              <p>Café frappé cremoso con un toque de vainilla.</p>
-            </div>
-          </div>
-
-          <div class="menu-cat reveal" data-delay="2">
-            <h3>Repostería <small>Bakery</small></h3>
-            <div class="menu-item">
-              <div class="menu-item__row"><span class="menu-item__name">Croissant de Almendra</span><span class="menu-item__dots"></span><span class="menu-item__price">$58</span></div>
-              <p>Hojaldre de mantequilla con crema de almendra.</p>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item__row"><span class="menu-item__name">Cheesecake de Frutos Rojos</span><span class="menu-item__dots"></span><span class="menu-item__price">$78</span></div>
-              <p>Estilo New York con coulis de la casa.</p>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item__row"><span class="menu-item__name">Galleta de Chocolate</span><span class="menu-item__dots"></span><span class="menu-item__price">$38</span></div>
-              <p>Trozos de chocolate semiamargo, centro suave.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== GALERÍA ===================== -->
-    <section class="section" style="padding-top:0">
-      <div class="wrap">
-        <div class="gallery">
-          <figure class="reveal"><img src="img/ambiente-lectura.webp" width="1448" height="1086" loading="lazy" alt="Cappuccino junto a un libro abierto sobre mesa de madera"></figure>
-          <figure class="reveal tile-product" data-delay="1"><img src="img/pastel.webp" width="900" height="900" loading="lazy" alt="Rebanada de pastel de chocolate"></figure>
-          <figure class="reveal" data-delay="2"><img src="img/ambiente-2.webp" width="1448" height="1086" loading="lazy" alt="Pastel de chocolate y café en mesa con luz cálida"></figure>
-          <figure class="reveal tile-product" data-delay="1"><img src="img/croissant.webp" width="900" height="900" loading="lazy" alt="Croissant de mantequilla"></figure>
-          <figure class="reveal tile-product" data-delay="2"><img src="img/galleta.webp" width="900" height="900" loading="lazy" alt="Galleta con chispas de chocolate"></figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== UBICACIÓN Y HORARIOS ===================== -->
-    <section class="section" id="visitanos" style="padding-top:0">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Visítanos</span>
-          <h2>Tu mesa <em>te espera.</em></h2>
-        </div>
-        <div class="visit">
-          <div class="visit__info reveal">
-            <span class="eyebrow">Dirección</span>
-            <!-- EDITAR: dirección real -->
-            <p class="visit__addr">Av. Morelos 123, Centro<br>Torreón, Coahuila</p>
-            <div class="visit__row">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-              <div><strong>Horarios</strong><span>Lunes a Sábado · 8:00 AM a 9:00 PM<br>Domingo · Cerrado</span></div>
-            </div>
-            <div class="visit__row">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-              <div><strong>Pedidos y reservaciones</strong><span>WhatsApp <a href="https://wa.me/524921059504?text=Hola%20Zunoo" target="_blank" rel="noopener" style="color:var(--accent)">492 105 9504</a> · te respondemos al momento.</span></div>
-            </div>
-            <div class="visit__ctas">
-              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Av.+Morelos+123+Centro+Torre%C3%B3n+Coahuila">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
-                Cómo llegar
-              </a>
-              <!-- WhatsApp: 492 105 9504 -->
-              <a class="btn btn--ghost js-wa" target="_blank" rel="noopener" href="https://wa.me/524921059504?text=Hola%20Zunoo%2C%20quiero%20hacer%20un%20pedido">WhatsApp</a>
-            </div>
-          </div>
-          <div class="map reveal" data-delay="1">
-            <iframe title="Mapa de ubicación de Zunoo" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=Av.%20Morelos%20123%2C%20Centro%2C%20Torre%C3%B3n%2C%20Coahuila&z=16&output=embed"></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== CTA FINAL ===================== -->
-    <section class="section cta-band" style="padding-top:0">
-      <div class="wrap">
-        <img class="cta-band__cup reveal" src="img/vaso-zunoo.webp" width="900" height="900" loading="lazy" alt="Vaso para llevar con el logotipo de Zunoo">
-        <span class="eyebrow reveal">Te esperamos</span>
-        <h2 class="reveal">Despierta tus sentidos. <em>Visítanos hoy.</em></h2>
-        <p class="reveal">Tu próxima taza favorita está a unos pasos.</p>
-        <a href="#visitanos" class="btn reveal">Cómo llegar</a>
       </div>
     </section>
   </main>
 
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="footer">
-    <div class="wrap">
-      <div class="footer__grid">
-        <div>
-          <a href="#inicio" class="logo">ZUNOO<span>.</span></a>
-          <p style="margin-top:1rem;max-width:340px">Cafetería de especialidad. El arte del buen café, en cada detalle.</p>
-          <div class="socials">
-            <!-- EDITAR: tu usuario de Instagram -->
-            <a href="https://www.instagram.com/tu_usuario" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-            </a>
-            <a class="js-wa" href="https://wa.me/524921059504?text=Hola%20Zunoo" target="_blank" rel="noopener" aria-label="WhatsApp">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg>
-            </a>
-          </div>
-        </div>
-        <div>
-          <h4>Visítanos</h4>
-          <ul>
-            <li>Av. Morelos 123, Centro</li>
-            <li>Torreón, Coahuila</li>
-            <li>Lun–Sáb · 8:00 AM – 9:00 PM</li>
-          </ul>
-        </div>
-        <div>
-          <h4>Explora</h4>
-          <ul>
-            <li><a href="#favoritos">Favoritos</a></li>
-            <li><a href="#menu">Menú completo</a></li>
-            <li><a href="#visitanos">Ubicación</a></li>
-            <li><a href="https://www.instagram.com/tu_usuario" target="_blank" rel="noopener">@tu_usuario</a></li>
-          </ul>
-        </div>
+  <!-- ===================== 7. PIE ===================== -->
+  <footer class="footer on-dark">
+    <div class="wrap footer__in">
+      <div>
+        <a href="#inicio" class="logo" aria-label="Zunoo, ir al inicio">ZUNOO<span aria-hidden="true">.</span></a>
+        <p>Av. Morelos 123, Centro, Torreón · Lun–Sáb 8:00–21:00</p>
       </div>
-      <div class="footer__base">
-        <span>© <span id="year">2026</span> Zunoo Cafetería. Todos los derechos reservados.</span>
-        <span>Hecho con café en Torreón.</span>
-      </div>
+      <ul class="footer__links">
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#visitanos">Cómo llegar</a></li>
+        <li><a href="https://wa.me/524921059504?text=Hola%20Zunoo" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/tu_usuario" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+      <small>© <span id="year">2026</span> Zunoo Cafetería.</small>
     </div>
   </footer>
 
-  <a class="wa-float js-wa" href="https://wa.me/524921059504?text=Hola%20Zunoo%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg>
+  <a class="wa-float is-hidden" id="waFloat" href="https://wa.me/524921059504?text=Hola%20Zunoo%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg>
   </a>
 
   <!-- Copia incrustada del hero (1280 px) para que el efecto también funcione al abrir el archivo con doble clic -->
@@ -673,31 +605,95 @@
   <script>
   (() => {
     'use strict';
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /* ---------- Nav y año ---------- */
-    const nav = document.getElementById('nav');
-    const onScroll = () => nav.classList.toggle('is-scrolled', scrollY > 30);
+    /* ---------- Encabezado: altura real para las anclas + estado sólido ---------- */
+    const header = document.getElementById('header');
+    const setHeaderH = () => document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+    setHeaderH();
+    if ('ResizeObserver' in window) new ResizeObserver(setHeaderH).observe(header);
+    const heroEl = document.querySelector('.hero');
+    const onScroll = () => header.classList.toggle('is-solid', heroEl.getBoundingClientRect().bottom < header.offsetHeight + 8);
     addEventListener('scroll', onScroll, { passive: true });
     onScroll();
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    /* ---------- Scroll reveal ---------- */
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
-    }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    /* ---------- Menú móvil (abre, cierra, foco y Escape) ---------- */
+    const toggle = header.querySelector('.nav__toggle');
+    const panel = document.getElementById('nav-panel');
+    const focusables = () => [toggle, ...panel.querySelectorAll('a')];
+    const setMenu = (open, returnFocus) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+      panel.classList.toggle('is-open', open);
+      header.classList.toggle('menu-open', open);
+      if (open) panel.querySelector('a').focus();
+      else if (returnFocus) toggle.focus();
+    };
+    toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+    panel.addEventListener('click', (e) => { if (e.target.closest('a') && toggle.offsetParent) setMenu(false); });
+    document.addEventListener('keydown', (e) => {
+      if (toggle.getAttribute('aria-expanded') !== 'true') return;
+      if (e.key === 'Escape') { setMenu(false, true); return; }
+      if (e.key === 'Tab') { // mantener el foco dentro del menú abierto
+        const f = focusables(), first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+    matchMedia('(min-width: 861px)').addEventListener('change', (m) => { if (m.matches) setMenu(false); });
 
+    /* ---------- Aparición suave al hacer scroll ---------- */
+    const reveals = document.querySelectorAll('.reveal');
+    if (reduceMotion || !('IntersectionObserver' in window)) reveals.forEach((el) => el.classList.add('is-in'));
+    else {
+      const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      }), { threshold: 0.08 });
+      reveals.forEach((el) => io.observe(el));
+      setTimeout(() => reveals.forEach((el) => el.classList.add('is-in')), 4000); // nunca dejar contenido oculto
+    }
+
+    /* ---------- WhatsApp flotante: se oculta donde ya hay botones de contacto ---------- */
+    const wa = document.getElementById('waFloat');
+    const busy = new Set();
+    const waIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => e.isIntersecting ? busy.add(e.target) : busy.delete(e.target));
+      wa.classList.toggle('is-hidden', busy.size > 0);
+    });
+    [heroEl, document.getElementById('visitanos'), document.querySelector('.footer')].forEach((el) => waIO.observe(el));
+
+    /* ---------- Parallax muy discreto en los granos ---------- */
+    const granos = [...document.querySelectorAll('.grano[data-speed]')];
+    if (!reduceMotion && granos.length) {
+      let ticking = false;
+      const update = () => {
+        granos.forEach((g) => {
+          const r = g.parentElement.getBoundingClientRect();
+          const off = (r.top + r.height / 2 - innerHeight / 2) * parseFloat(g.dataset.speed);
+          g.style.setProperty('--py', Math.max(-40, Math.min(40, off)).toFixed(1) + 'px');
+        });
+        ticking = false;
+      };
+      addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+      update();
+    }
+  })();
+  </script>
+
+  <script>
+  (() => {
+    'use strict';
     /* =====================================================================
-       HERO · Distorsión líquida con el cursor
+       PORTADA · Distorsión líquida con el cursor
        Un campo de desplazamiento (velocidad + ondas) vive en una rejilla de
-       baja resolución. Cada cuadro se amortigua de forma exponencial, así que
-       siempre regresa a cero: la imagen vuelve exactamente a su estado original.
+       baja resolución. Cada paso se amortigua, así que siempre regresa a cero:
+       la imagen vuelve exactamente a su estado original.
        ===================================================================== */
     const hero = document.querySelector('.hero');
     const canvas = document.getElementById('heroCanvas');
     let img = document.getElementById('heroImg');
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const FOCUS_X = 0.72;          // igual que object-position horizontal de la imagen
     const GRID_W = 120;            // resolución de la simulación
     const VEL_DECAY = 0.962;       // qué tan rápido se "asienta" el líquido (por paso de 1/60 s)
     const WAVE_DAMP = 0.982;       // amortiguación de las ondas
@@ -712,11 +708,12 @@
       varying vec2 vUv;
       uniform sampler2D uImg, uDisp;
       uniform vec2 uRes, uImgRes;
-      uniform float uFocus, uTime, uStrength;
+      uniform float uTime, uStrength;
+      uniform vec2 uCenter;
       vec2 cover(vec2 uv){
         float rs = uRes.x / uRes.y, ri = uImgRes.x / uImgRes.y;
         vec2 s = rs > ri ? vec2(1., ri / rs) : vec2(rs / ri, 1.);
-        vec2 o = (1. - s) * vec2(uFocus, .5);
+        vec2 o = clamp(uCenter - s * .5, vec2(0.), 1. - s); // mantiene la taza a la vista
         return uv * s + o;
       }
       void main(){
@@ -755,7 +752,7 @@
     const uRes = U('uRes'), uImgRes = U('uImgRes'), uTime = U('uTime');
     gl.uniform1i(U('uImg'), 0);
     gl.uniform1i(U('uDisp'), 1);
-    gl.uniform1f(U('uFocus'), FOCUS_X);
+    const uCenter = U('uCenter');
     gl.uniform1f(U('uStrength'), STRENGTH);
 
     const makeTex = (unit) => {
@@ -789,6 +786,9 @@
       canvas.height = Math.round(canvas.clientHeight * dpr);
       gl.viewport(0, 0, canvas.width, canvas.height);
       gl.uniform2f(uRes, canvas.width, canvas.height);
+      // centro de la taza en la foto: en celular se encuadra la taza completa
+      const narrow = canvas.clientWidth / Math.max(1, canvas.clientHeight) < 1.3;
+      gl.uniform2f(uCenter, 0.7, narrow ? 0.36 : 0.42);
       alloc();
       upload();
       kick();
