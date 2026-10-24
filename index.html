@@ -1103,8 +1103,17 @@
       if (e.key === 'ArrowLeft') { e.preventDefault(); userStop(); step(-1); }
       if (e.key === 'ArrowRight') { e.preventDefault(); userStop(); step(1); }
     });
-    root.addEventListener('mouseenter', () => { hovering = true; schedule(); });
-    root.addEventListener('mouseleave', () => { hovering = false; schedule(); });
+    // Pausa solo cuando el mouse está sobre la bebida central o los controles
+    // (no sobre todo el ancho de la sección, y nunca por toques en pantallas táctiles).
+    const setHover = (v) => { if (v !== hovering) { hovering = v; schedule(); } };
+    root.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      const center = slides.find((s) => s.style.getPropertyValue('--k') === '0');
+      const r = center ? center.getBoundingClientRect() : null;
+      const overSlide = r && e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+      setHover(Boolean(overSlide || e.target.closest('.carousel__btn, .carousel__bar')));
+    });
+    root.addEventListener('pointerleave', () => setHover(false));
     root.addEventListener('focusin', (e) => { if (e.target.matches(':focus-visible')) { focused = true; schedule(); } }); // solo foco de teclado
     root.addEventListener('focusout', (e) => { if (!root.contains(e.relatedTarget)) { focused = false; schedule(); } });
     document.addEventListener('visibilitychange', schedule);
