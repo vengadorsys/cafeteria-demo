@@ -256,7 +256,7 @@
     .js .slide {
       transform: translateX(calc(var(--k, 0) * var(--gap))) scale(var(--s, 1));
       transform-origin: 50% 100%; opacity: var(--o, 1);
-      transition: transform .7s cubic-bezier(.33,.9,.3,1), opacity .7s ease;
+      transition: transform .8s cubic-bezier(.45,.05,.25,1), opacity .8s ease;
     }
     .js .slide.no-anim { transition: none; }
     .carousel__btn {
@@ -277,17 +277,14 @@
     .price { font-weight: 700; color: var(--caramel-ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
     .info .price { display: block; margin-top: .35rem; font-size: 1.3rem; }
     .info p { color: var(--ink-2); margin-top: .45rem; }
-    .carousel__bar { display: flex; align-items: center; justify-content: center; gap: .9rem; margin-top: 1.4rem; }
-    .dots { display: flex; gap: .1rem; }
-    .dot { width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: grid; place-items: center; border-radius: 50%; }
-    .dot::before { content: ""; width: 10px; height: 10px; border-radius: 999px; background: #C9B49E; transition: width .3s ease, background .3s ease; }
-    .dot[aria-current="true"]::before { width: 26px; background: var(--caramel-ink); }
+    .carousel__bar { display: flex; justify-content: center; margin-top: .4rem; }
+    /* Control mínimo de pausa/reanudación (accesibilidad): discreto, área táctil de 44 px */
     .carousel__pause {
-      display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; padding: 0 1rem; border-radius: 999px; border: 0; cursor: pointer;
-      background: transparent; color: var(--ink-2); font: 600 .9rem/1 var(--sans); box-shadow: inset 0 0 0 1px var(--line);
+      display: inline-grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; cursor: pointer;
+      background: transparent; color: #8C7562; opacity: .8; transition: opacity .2s, color .2s;
     }
-    .carousel__pause:hover { color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink-2); }
-    .carousel__pause svg { width: 14px; height: 14px; }
+    .carousel__pause:hover, .carousel__pause:focus-visible { opacity: 1; color: var(--ink); }
+    .carousel__pause svg { width: 12px; height: 12px; }
     .carousel__pause .i-play { display: none; }
     .carousel__pause[data-state="paused"] .i-play { display: block; }
     .carousel__pause[data-state="paused"] .i-pause { display: none; }
@@ -501,11 +498,9 @@
         <div class="carousel__info" id="favInfo" aria-live="off" aria-atomic="true"></div>
 
         <div class="carousel__bar">
-          <div class="dots" role="group" aria-label="Elegir bebida"></div>
-          <button class="carousel__pause" type="button" data-state="playing" aria-controls="favStage">
+          <button class="carousel__pause" type="button" data-state="playing" aria-controls="favStage" aria-label="Pausar carrusel">
             <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1"/><rect x="14" y="4" width="5" height="16" rx="1"/></svg>
             <svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.9l12-7.5a1 1 0 0 0 0-1.8l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg>
-            <span class="carousel__pause-label">Pausar</span>
           </button>
         </div>
       </div>
@@ -1013,13 +1008,11 @@
     if (!root) return;
     const stage = document.getElementById('favStage');
     const infoBox = document.getElementById('favInfo');
-    const dotsBox = root.querySelector('.dots');
     const pauseBtn = root.querySelector('.carousel__pause');
-    const pauseLabel = pauseBtn.querySelector('.carousel__pause-label');
     const base = [...stage.querySelectorAll('.slide')];
     const n = base.length;
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const DELAY = 5500;
+    const DELAY = 5000;
 
     // Copias decorativas para que el paso del último al primero sea continuo (sin rebobinar)
     base.forEach((s) => {
@@ -1044,14 +1037,6 @@
       infoBox.appendChild(d);
       return d;
     });
-    const dots = base.map((s, i) => {
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'dot';
-      b.setAttribute('aria-label', 'Mostrar ' + s.dataset.name);
-      b.addEventListener('click', () => { userStop(); goTo(i); });
-      dotsBox.appendChild(b);
-      return b;
-    });
 
     let active = 0;           // índice virtual 0..N-1
     const prevK = new Array(N).fill(null);
@@ -1070,15 +1055,8 @@
       });
       const real = active % n;
       infos.forEach((d, i) => { d.hidden = i !== real; });
-      dots.forEach((d, i) => d.setAttribute('aria-current', i === real ? 'true' : 'false'));
     };
     const step = (dir) => { active = (active + dir + N) % N; layout(); };
-    const goTo = (i) => {
-      const cur = active % n;
-      let d = ((i - cur) % n + n) % n;
-      if (d > n / 2) d -= n;
-      if (d) step(d);
-    };
 
     // ---- Reproducción automática ----
     let userStopped = reduceMotion, hovering = false, focused = false, inView = false, timer = null;
@@ -1089,19 +1067,19 @@
     };
     const renderPause = () => {
       pauseBtn.dataset.state = userStopped ? 'paused' : 'playing';
-      pauseLabel.textContent = userStopped ? 'Reproducir' : 'Pausar';
       pauseBtn.setAttribute('aria-label', userStopped ? 'Reproducir carrusel' : 'Pausar carrusel');
       infoBox.setAttribute('aria-live', userStopped ? 'polite' : 'off'); // no anunciar cambios automáticos
     };
-    const userStop = () => { userStopped = true; renderPause(); schedule(); };
-    pauseBtn.addEventListener('click', () => { userStopped = !userStopped; renderPause(); if (!userStopped) { clearTimeout(timer); timer = setTimeout(() => { step(1); schedule(); }, DELAY); } else schedule(); });
+    // Flechas y deslizar: navegación opcional que reinicia el intervalo (5 s después continúa solo)
+    const manual = (dir) => { step(dir); schedule(); };
+    pauseBtn.addEventListener('click', () => { userStopped = !userStopped; renderPause(); schedule(); });
 
-    root.querySelector('.carousel__btn--prev').addEventListener('click', () => { userStop(); step(-1); });
-    root.querySelector('.carousel__btn--next').addEventListener('click', () => { userStop(); step(1); });
+    root.querySelector('.carousel__btn--prev').addEventListener('click', () => manual(-1));
+    root.querySelector('.carousel__btn--next').addEventListener('click', () => manual(1));
     root.addEventListener('keydown', (e) => {
       if (!e.target.closest('button')) return;
-      if (e.key === 'ArrowLeft') { e.preventDefault(); userStop(); step(-1); }
-      if (e.key === 'ArrowRight') { e.preventDefault(); userStop(); step(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); manual(-1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); manual(1); }
     });
     // Pausa solo cuando el mouse está sobre la bebida central o los controles
     // (no sobre todo el ancho de la sección, y nunca por toques en pantallas táctiles).
@@ -1126,7 +1104,7 @@
       if (sx === null) return;
       const dx = e.clientX - sx, dy = e.clientY - sy;
       sx = null;
-      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { userStop(); step(dx < 0 ? 1 : -1); }
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { manual(dx < 0 ? 1 : -1); }
     });
     stage.addEventListener('pointercancel', () => { sx = null; });
 
